@@ -79,6 +79,62 @@
             </div>
         </div>
 
+        <div class="row">
+            <div class="col-md-12">
+            <table class="table DataTable">
+            <thead>
+                <tr>
+                    <th width="40px">No</th>
+                    <th>Judul Buku - Kode</th>
+                    <th width="">Tgl Peminjam</th>
+                    <th width="">Tgl Harus Kembali</th>
+                    <th width="">Tgl Kembali</th>
+                    <th width="">Status Kembali</th>
+                    <th width="">Action</th>
+                </tr>
+            </thead>
+            <tbody id="targetData">
+                <?php $no = 1;
+                foreach ($peminjaman as $row) { ?>
+                    <tr>
+                        <td><?= $no ?></td>
+                        <td><?= $row->judul_buku.' - '.$row->kd_buku ?></td>
+                        <td><?= $row->tanggal_pinjam ?></td>
+                        <td><?= $row->tanggal_harus_kembali ?></td>
+                        <td><?= $row->tanggal_kembali ?></td>
+                        <td><?php if ($row->status_kembali == "Belum") {
+                                echo '<div class="label label-warning">Belum</div>';
+                            } else if($row->status_kembali == "Kembali"){
+                                echo '<div class="label label-success">Kembali</div>';
+                            }else{
+                                echo '<div class="label label-danger">Hilang</div>';
+                            } ?></td>
+                        <td>
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-info"><i class="fa fa-cogs"></i></button>
+                                <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">
+                                    <span class="caret"></span>
+                                    <span class="sr-only">Toggle Dropdown</span>
+                                </button>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="<?= base_url($status . $row->kd_peminjaman.'/'.$row->kd_anggota.'/Kembali')  ?>"><i class="fa fa-check"></i> Kembali</a></li>
+                                    <li><a href="<?= base_url($status . $row->kd_peminjaman.'/'.$row->kd_anggota.'/Belum')  ?>"><i class="fa fa-circle"></i> Belum</a></li>
+                                    <li><a href="<?= base_url($status . $row->kd_peminjaman.'/'.$row->kd_anggota.'/Hilang')  ?>"><i class="fa fa-pencil"></i> Hilang</a></li>
+                                    <li><a href="<?= base_url($edit . $row->id_user)  ?>"><i class="fa fa-edit"></i> Edit</a></li>
+                                    <li><a class="tombol-hapus" href="<?= base_url($delete . $row->id_user)  ?>"><i class="fa fa-trash"></i> Hapus</a></li>
+                                </ul>
+                            </div>
+
+
+                        </td>
+                    </tr>
+                <?php $no++;
+                } ?>
+            </tbody>
+        </table>
+            </div>
+        </div>
+
     </div>
     <!-- /.box-body -->
 </div>
