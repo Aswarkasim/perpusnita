@@ -43,7 +43,7 @@ $role = $this->session->userdata('role');
             <li class="treeview <?php if ($this->uri->segment(1) == "transaksi") {
                                     echo "active";
                                 } ?>">
-                <a href="#"><i class="fa fa-exchange"></i> <span>Transaksi Buku</span>
+                <a href="#"><i class="fa fa-exchange"></i> <span>Peminjaman Buku</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
                     </span>
@@ -51,10 +51,10 @@ $role = $this->session->userdata('role');
                 <ul class="treeview-menu">
                     <li class="<?php if ($this->uri->segment(2) == "peminjaman") {
                                     echo "active";
-                                } ?>"><a href="<?= base_url('transaksi/peminjaman') ?>">Peminjaman</a></li>
+                                } ?>"><a href="<?= base_url('admin/peminjaman') ?>">Data Peminjaman</a></li>
                     <li class="<?php if ($this->uri->segment(2) == "pengembalian") {
                                     echo "active";
-                                } ?>"><a href="<?= base_url('transaksi/pengembalian') ?>">Pengembalian</a></li>
+                                } ?>"><a href="<?= base_url('admin/peminjaman/add') ?>">Tambah Peminjam</a></li>
                 </ul>
             </li>
 
