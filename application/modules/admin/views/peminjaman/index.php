@@ -18,6 +18,7 @@
                     <th>Judul Buku - Kode</th>
                     <th width="">Tgl Peminjam</th>
                     <th width="">Tgl Harus Kembali</th>
+                    <th width="">Tgl Kembali</th>
                     <th width="">Status Kembali</th>
                     <th width="">Action</th>
                 </tr>
@@ -32,6 +33,7 @@
                         </td>
                         <td><?= $row->judul_buku.' - '.$row->kd_buku ?></td>
                         <td><?= $row->tanggal_pinjam ?></td>
+                        <td><?= $row->tanggal_harus_kembali ?></td>
                         <td><?= $row->tanggal_kembali ?></td>
                         <td><?php if ($row->status_kembali == "Belum") {
                                 echo '<div class="label label-warning">Belum</div>';

@@ -16,6 +16,8 @@ class Admin_model extends CI_Model {
                  return $this->db->get()->result();
     }
 
+
+
     function listPeminjamanAnggota($kd_anggota){
         $this->db->select('tbl_peminjaman.*, 
                             tbl_buku.judul_buku, 

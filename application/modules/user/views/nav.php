@@ -7,10 +7,10 @@
         <a href="<?= base_url('user/profil') ?>" role="tab" class="control-item">Profil</a>
     </li>
 
-    <li class="nav-link <?php if ($this->uri->segment('2') == 'buku') {
+    <!-- <li class="nav-link <?php if ($this->uri->segment('2') == 'buku') {
                             echo 'active';
                         } ?>">
-        <a href="<?= base_url('user/buku') ?>" role="tab" class="control-item">Data Buku</a>
+        <a href="<?= base_url('user/buku') ?>" role="tab" class="control-item">Data Buku</a> -->
     <li class="nav-link <?php if ($this->uri->segment('2') == 'peminjaman') {
                             echo 'active';
                         } ?>">
