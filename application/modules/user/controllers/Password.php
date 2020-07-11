@@ -15,8 +15,8 @@ class Password extends CI_Controller
 
     public function index()
     {
-        $id_user = $this->session->userdata('id_user');
-        $user = $this->Crud_model->listingOne('tbl_user', 'id_user', $id_user);
+        $kd_anggota = $this->session->userdata('kd_anggota');
+        $user = $this->Crud_model->listingOne('tbl_anggota', 'kd_anggota', $kd_anggota);
         // print_r($user);
         // die;
 
@@ -48,9 +48,9 @@ class Password extends CI_Controller
                 $data = [
                     'password'      => sha1($i->post('password'))
                 ];
-                $this->Crud_model->edit('tbl_user', 'id_user', $id_user, $data);
+                $this->Crud_model->edit('tbl_anggota', 'kd_anggota', $kd_anggota, $data);
                 $this->load->view('layout/wrapper', $data, FALSE);
-                $this->session->set_flashdata('msg', 'diedit');
+                $this->session->set_flashdata('msg', 'Password diubah');
                 redirect('user/password', 'refresh');
             }
         }

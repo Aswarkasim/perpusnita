@@ -105,11 +105,29 @@ $role = $this->session->userdata('role');
                 </ul>
             </li>
 
-            <li class="<?php if ($this->uri->segment(2) == "konfigurasi") {
-                            echo "active";
-                        }
-                        ?>"><a href="<?php echo base_url('admin/konfigurasi')
-                                        ?>"><i class="fa fa-cogs"></i> <span>Konfigurasi</span></a></li>
+            <li class="treeview <?php if ($this->uri->segment(2) == "kofigurasi") {
+                                    echo "active";
+                                } ?>">
+                <a href="#"><i class="fa fa-cogs"></i> <span>Konfigurasi</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li class="<?php if ($this->uri->segment(3) == "index") {
+                                    echo "active";
+                                } ?>"><a href="<?= base_url('admin/konfigurasi') ?>">Konfigurasi</a></li>
+                    <li class="<?php if ($this->uri->segment(3) == "sejarah") {
+                                    echo "active";
+                                } ?>"><a href="<?= base_url('admin/konfigurasi/sejarah') ?>">Sejarah</a></li>
+                    <li class="<?php if ($this->uri->segment(3) == "visimisi") {
+                                    echo "active";
+                                } ?>"><a href="<?= base_url('admin/konfigurasi/visimisi') ?>">Visi & Misi</a></li>
+                    <li class="<?php if ($this->uri->segment(3) == "panduan") {
+                                    echo "active";
+                                } ?>"><a href="<?= base_url('admin/konfigurasi/panduan') ?>">Panduan</a></li>
+                </ul>
+            </li>
 
 
         </ul>

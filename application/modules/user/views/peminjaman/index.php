@@ -16,24 +16,24 @@ $this->load->view('user/headprofil');
                 <thead>
                     <tr>
                         <td width="100px">NO</td>
-                        <td>NAMA BUKU</td>
+                        <td>JUDUL BUKU</td>
                         <td>TANGGAL PINJAM</td>
                         <td>BATAS WAKTU</td>
-                        <td>STATUS</td>
-                        <td widtj="100px">#</td>
+                        <td widtj="100px">AKSI</td>
                     </tr>
                 </thead>
                 <tbody>
+
+                <?php $no = 1; foreach ($buku as $row) {?>
                     <tr>
-                        <td>1</td>
-                        <td>JUDUL</td>
-                        <td>12/23/2020</td>
-                        <td>12/23/2020</td>
-                        <td>
-                            <span class="badge badge-success">Aktif</span>
-                        </td>
+                        <td width="50px"><?= $no++ ?></td>
+                        <td><a href="<?= base_url('user/peminjaman/detail/'.$row->kd_buku) ?>"><?= $row->judul_buku ?></a></td>
+                        <td><?= $row->tanggal_pinjam ?></td>
+                        <td><?= $row->tanggal_harus_kembali ?></td>
                         <td><a href="" class="btn btn-primary"><i class="fa fa-eye"></i> Lihat</a></td>
                     </tr>
+
+                <?php  } ?>
                 </tbody>
             </table>
 

@@ -171,7 +171,7 @@
                                     </div>
                                     <div class="col-md-9">
                                         <a href="<?= base_url('master/buku') ?>" class="btn btn-warning"><i class="fa fa-arrow-left"></i> Kembali</a>
-                                        <button type="submit" class="btn btn-primary">Tambah</button>
+                                        <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Simpan</button>
                                     </div>
                                 </div>
                             </div>

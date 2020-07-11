@@ -18,6 +18,16 @@
 
 <!-- Custom scripts for this template -->
 <script src="<?= base_url('assets/home/') ?>js/clean-blog.min.js"></script>
+<script src="<?= base_url('assets/') ?>js/sweetalert2.all.min.js"></script>
+<script src="<?= base_url('assets/') ?>js/mySwal.js"></script>
+
+<!-- page script -->
+<script>
+    $(function() {
+        $('.DataTable').DataTable();
+        $('.select2').select2()
+    })
+</script>
 
 </body>
 
