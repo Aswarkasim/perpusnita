@@ -11,7 +11,7 @@
     <title>PERPUSTAKAAN SMKN 5 MAKASSAR</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="<?= base_url('assets/home/') ?>vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<?= base_url('assets/home/') ?>vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
 
     <!-- Custom fonts for this template -->
     <link href="<?= base_url('assets/home/') ?>font-awesome/css/font-awesome.css" rel="stylesheet">

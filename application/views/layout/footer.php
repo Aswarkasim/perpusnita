@@ -1,14 +1,12 @@
-<hr>
-
-<!-- Footer -->
-<footer>
-    <div class="container">
-        <div class="pull-right">
+<footer class="footer bg-secondary">
+    <div class="container mt-0">
+        <span class="text-muted"><a href="<?= base_url('admin/auth'); ?>">admin log</a> Sistem Informasi Perpuskaan by Rasnita Arsyani</span>
+        <span class="pull-right">
             <?php if ($this->session->userdata('kd_anggota') != '') { ?>
                 <a href="<?= base_url('user/auth/logout') ?>" class="btn btn-secondary"><i class="fa fa-sign-out"></i> Logout</a>
 
             <?php  } ?>
-        </div>
+        </span>
     </div>
 </footer>
 

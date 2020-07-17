@@ -1,7 +1,8 @@
 <button type="button" class="btn btn-warning btn-sx" data-toggle="modal" data-target="#modal-default">
     <i class="fa fa-plus"></i>Tambah
 </button>
-
+<a href="<?= base_url('master/kategori/exportExcel') ?>" class="btn btn-sm btn-success"><i class="fa fa-file-excel-o"></i> Export Excel</a>
+<a href="<?= base_url('master/kategori/cetak') ?>" class="btn btn-sm btn-primary" target="_blank"><i class="fa fa-print"></i> Cetak</a>
 <?= form_open(base_url($tombol['add'])) ?>
 <div class="modal fade" id="modal-default">
     <div class="modal-dialog">

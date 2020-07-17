@@ -20,7 +20,7 @@
                     <thead>
                         <tr>
                             <th width="40px">No</th>
-                            <th>Kode Kategori</th>
+                            <th>Kode Penerbit</th>
                             <th>Nama</th>
                             <th width="100px">Aksi</th>
                         </tr>

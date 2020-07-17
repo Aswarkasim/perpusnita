@@ -6,7 +6,9 @@ class Home extends CI_Controller
 
     public function index()
     {
+        $konfigurasi = $this->Crud_model->listingOne('tbl_konfigurasi', 'id_konfigurasi', '1');
         $data = [
+            'data'    => $konfigurasi,
             'content' => 'home/home/beranda'
         ];
         $this->load->view('layout/wrapper', $data);
@@ -15,7 +17,7 @@ class Home extends CI_Controller
     {
         $konfigurasi = $this->Crud_model->listingOne('tbl_konfigurasi', 'id_konfigurasi', '1');
         $data = [
-            'data'    => $konfigurasi->sejarah,
+            'data'    => $konfigurasi,
             'content' => 'home/home/sejarah'
         ];
         $this->load->view('layout/wrapper', $data);
@@ -24,7 +26,7 @@ class Home extends CI_Controller
     {
         $konfigurasi = $this->Crud_model->listingOne('tbl_konfigurasi', 'id_konfigurasi', '1');
         $data = [
-            'data'    => $konfigurasi->visimisi,
+            'data'    => $konfigurasi,
             'content' => 'home/home/visi'
         ];
         $this->load->view('layout/wrapper', $data);
@@ -33,7 +35,7 @@ class Home extends CI_Controller
     {
         $konfigurasi = $this->Crud_model->listingOne('tbl_konfigurasi', 'id_konfigurasi', '1');
         $data = [
-            'data'    => $konfigurasi->panduan,
+            'data'    => $konfigurasi,
             'content' => 'home/home/panduan'
         ];
         $this->load->view('layout/wrapper', $data);

@@ -71,4 +71,64 @@ class Kategori extends CI_Controller
         $this->session->set_flashdata('msg', 'data telah dihapus');
         redirect('master/kategori');
     }
+
+    function exportExcel()
+    {
+
+
+        $this->load->library("excel");
+
+        $object = new PHPExcel();
+
+        $object->setActiveSheetIndex(0);
+
+        $table_columns = array("Date Created", "Kode Kategori", "Nama Kategori");
+
+        $column = 0;
+
+        foreach ($table_columns as $field) {
+
+            $object->getActiveSheet()->setCellValueByColumnAndRow($column, 1, $field);
+
+            $column++;
+        }
+
+
+        $data = $this->Crud_model->listing('tbl_kategori');
+
+
+        $excel_row = 2;
+
+        foreach ($data as $row) {
+
+            $object->getActiveSheet()->setCellValueByColumnAndRow(0, $excel_row, $row->date_created);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(1, $excel_row, $row->kd_kategori);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(2, $excel_row, $row->nm_kategori);
+
+            $excel_row++;
+        }
+
+        $object_writer = PHPExcel_IOFactory::createWriter($object, 'Excel5');
+
+        header('Content-Type: application/vnd.ms-excel');
+
+        header('Content-Disposition: attachment;filename="DataKategori.xls"');
+
+        ob_end_clean();
+        ob_start();
+        $object_writer->save('php://output');
+    }
+
+
+    function cetak()
+    {
+        $kategori = $this->Crud_model->listing('tbl_kategori');
+        $konfigurasi = $this->Crud_model->listingOne('tbl_konfigurasi', 'id_konfigurasi', '1');
+        $data = [
+
+            'kategori' => $kategori,
+            'konfigurasi' => $konfigurasi,
+        ];
+        $this->load->view('master/kategori/cetak', $data, FALSE);
+    }
 }

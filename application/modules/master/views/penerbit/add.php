@@ -2,6 +2,10 @@
     <i class="fa fa-plus"></i>Tambah
 </button>
 
+
+<a href="<?= base_url('master/penerbit/exportExcel') ?>" class="btn btn-sm btn-success"><i class="fa fa-file-excel-o"></i> Export Excel</a>
+<a href="<?= base_url('master/penerbit/cetak') ?>" class="btn btn-sm btn-primary" target="_blank"><i class="fa fa-print"></i> Cetak</a>
+
 <?= form_open(base_url($tombol['add'])) ?>
 <div class="modal fade" id="modal-default">
     <div class="modal-dialog">

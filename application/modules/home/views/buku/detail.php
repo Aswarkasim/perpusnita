@@ -9,16 +9,18 @@
     </div>
     <div class="row mt-5">
         <div class="col-md-4">
-            
-            <?php if($buku->cover !=""){ ?>
-                <img src="<?php echo base_url('assets/image/buku'.$buku->cover) ?>" class="img img-thumbnail img-responsive">
-            <?php }else{ echo "Tidak ada cover";} ?>
+
+            <?php if ($buku->cover != "") { ?>
+                <img src="<?= base_url('assets/uploads/images/buku/' . $buku->cover) ?>" class="img img-thumbnail img-responsive">
+            <?php } else {
+                echo "Tidak ada cover";
+            } ?>
 
         </div>
 
         <div class="col-md-8 ">
-            
-            
+
+
             <table class="table table-bordered">
                 <thead>
                     <tr>

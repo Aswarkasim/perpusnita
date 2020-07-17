@@ -193,4 +193,71 @@ class Buku extends CI_Controller
         $this->session->set_flashdata('msg', 'data telah dihapus');
         redirect('master/buku');
     }
+
+    function exportExcel()
+    {
+
+
+        $this->load->library("excel");
+
+        $object = new PHPExcel();
+
+        $object->setActiveSheetIndex(0);
+
+        $table_columns = array("Date Created", "Kode Buku", "Judul Buku", "ISBN", "Penulis", "Penerbit", "Tahun Terbit", "Kategori", "Jumlah", "Bahasa");
+
+        $column = 0;
+
+        foreach ($table_columns as $field) {
+
+            $object->getActiveSheet()->setCellValueByColumnAndRow($column, 1, $field);
+
+            $column++;
+        }
+
+
+        $data = $this->Buku_model->listingBukuIndex();
+
+
+        $excel_row = 2;
+
+        foreach ($data as $row) {
+
+            $object->getActiveSheet()->setCellValueByColumnAndRow(0, $excel_row, $row->date_created);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(1, $excel_row, $row->kd_buku);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(2, $excel_row, $row->judul_buku);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(3, $excel_row, $row->isbn);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(4, $excel_row, $row->penulis);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(5, $excel_row, $row->nm_penerbit);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(6, $excel_row, $row->tahun_terbit);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(7, $excel_row, $row->nm_kategori);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(8, $excel_row, $row->jumlah);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(9, $excel_row, $row->bahasa);
+
+            $excel_row++;
+        }
+
+        $object_writer = PHPExcel_IOFactory::createWriter($object, 'Excel5');
+
+        header('Content-Type: application/vnd.ms-excel');
+
+        header('Content-Disposition: attachment;filename="DataBuku.xls"');
+
+        ob_end_clean();
+        ob_start();
+        $object_writer->save('php://output');
+    }
+
+
+    function cetak()
+    {
+        $buku = $this->Crud_model->listing('tbl_buku');
+        $konfigurasi = $this->Crud_model->listingOne('tbl_konfigurasi', 'id_konfigurasi', '1');
+        $data = [
+
+            'buku' => $buku,
+            'konfigurasi' => $konfigurasi,
+        ];
+        $this->load->view('master/buku/cetak', $data, FALSE);
+    }
 }

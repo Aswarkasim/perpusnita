@@ -166,4 +166,70 @@ class Anggota extends CI_Controller
         $this->session->set_flashdata('msg', 'data telah dihapus');
         redirect('master/anggota');
     }
+
+    function exportExcel()
+    {
+
+
+        $this->load->library("excel");
+
+        $object = new PHPExcel();
+
+        $object->setActiveSheetIndex(0);
+
+        $table_columns = array("Date Created", "Kode Anggota", "Nama Anggota", "Jenis Kelamin", "Agama", "Tempat Lahir", "Tanggal Lahir", "Alamat", "No Telepon", "Status Pinjam");
+
+        $column = 0;
+
+        foreach ($table_columns as $field) {
+
+            $object->getActiveSheet()->setCellValueByColumnAndRow($column, 1, $field);
+
+            $column++;
+        }
+
+
+        $data = $this->Crud_model->listing('tbl_anggota', 'date_created', 'DESC');
+
+
+        $excel_row = 2;
+
+        foreach ($data as $row) {
+
+            $object->getActiveSheet()->setCellValueByColumnAndRow(0, $excel_row, $row->date_created);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(1, $excel_row, $row->kd_anggota);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(2, $excel_row, $row->nm_anggota);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(3, $excel_row, $row->kelamin);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(4, $excel_row, $row->agama);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(5, $excel_row, $row->tempat_lahir);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(6, $excel_row, $row->tanggal_lahir);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(7, $excel_row, $row->alamat);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(8, $excel_row, $row->no_telepon);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(9, $excel_row, $row->status_pinjam);
+
+            $excel_row++;
+        }
+
+        $object_writer = PHPExcel_IOFactory::createWriter($object, 'Excel5');
+
+        header('Content-Type: application/vnd.ms-excel');
+
+        header('Content-Disposition: attachment;filename="DataAnggota.xls"');
+
+        ob_end_clean();
+        ob_start();
+        $object_writer->save('php://output');
+    }
+
+    function cetak()
+    {
+        $anggota = $this->Crud_model->listing('tbl_anggota');
+        $konfigurasi = $this->Crud_model->listingOne('tbl_konfigurasi', 'id_konfigurasi', '1');
+        $data = [
+
+            'anggota' => $anggota,
+            'konfigurasi' => $konfigurasi,
+        ];
+        $this->load->view('master/anggota/cetak', $data, FALSE);
+    }
 }

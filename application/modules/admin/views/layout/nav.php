@@ -14,7 +14,11 @@ $role = $this->session->userdata('role');
         <ul class="sidebar-menu" data-widget="tree">
             <li class="header">HEADER</li>
 
-
+            <li class="<?php if ($this->uri->segment(2) == "dashboard") {
+                            echo "active";
+                        }
+                        ?>"><a href="<?php echo base_url('admin/dashboard')
+                                        ?>"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
 
             <li class="treeview <?php if ($this->uri->segment(1) == "master") {
                                     echo "active";
@@ -40,7 +44,7 @@ $role = $this->session->userdata('role');
                 </ul>
             </li>
 
-            <li class="treeview <?php if ($this->uri->segment(1) == "transaksi") {
+            <li class="treeview <?php if ($this->uri->segment(2) == "peminjaman") {
                                     echo "active";
                                 } ?>">
                 <a href="#"><i class="fa fa-exchange"></i> <span>Peminjaman Buku</span>
@@ -48,16 +52,16 @@ $role = $this->session->userdata('role');
                         <i class="fa fa-angle-left pull-right"></i>
                     </span>
                 </a>
-                <ul class="treeview-menu">
-                    <li class="<?php if ($this->uri->segment(2) == "peminjaman") {
+                <ul class="treeview-menu active">
+                    <li class="<?php if ($this->uri->segment(3) == "index") {
                                     echo "active";
-                                } ?>"><a href="<?= base_url('admin/peminjaman') ?>">Data Peminjaman</a></li>
-                    <li class="<?php if ($this->uri->segment(2) == "pengembalian") {
+                                } ?>"><a href="<?= base_url('admin/peminjaman/index') ?>">Data Peminjaman</a></li>
+                    <li class="<?php if ($this->uri->segment(3) == "laporan") {
                                     echo "active";
-                                } ?>"><a href="<?= base_url('admin/peminjaman/add') ?>">Tambah Peminjam</a></li>
+                                } ?>"><a href="<?= base_url('admin/peminjaman/laporan') ?>">Laporan</a></li>
                 </ul>
             </li>
-
+            <!-- 
             <li class="treeview <?php if ($this->uri->segment(1) == "transaksi") {
                                     echo "active";
                                 } ?>">
@@ -86,7 +90,7 @@ $role = $this->session->userdata('role');
                                     echo "active";
                                 } ?>"><a href="<?= base_url('laporan/kategori') ?>">Peminjaman Perbulan</a></li>
                 </ul>
-            </li>
+            </li> -->
 
 
 
@@ -105,7 +109,7 @@ $role = $this->session->userdata('role');
                 </ul>
             </li>
 
-            <li class="treeview <?php if ($this->uri->segment(2) == "kofigurasi") {
+            <li class="treeview <?php if ($this->uri->segment(2) == "konfigurasi") {
                                     echo "active";
                                 } ?>">
                 <a href="#"><i class="fa fa-cogs"></i> <span>Konfigurasi</span>
@@ -116,7 +120,10 @@ $role = $this->session->userdata('role');
                 <ul class="treeview-menu">
                     <li class="<?php if ($this->uri->segment(3) == "index") {
                                     echo "active";
-                                } ?>"><a href="<?= base_url('admin/konfigurasi') ?>">Konfigurasi</a></li>
+                                } ?>"><a href="<?= base_url('admin/konfigurasi/index') ?>">Konfigurasi</a></li>
+                    <li class="<?php if ($this->uri->segment(3) == "banner") {
+                                    echo "active";
+                                } ?>"><a href="<?= base_url('admin/konfigurasi/banner') ?>">Banner</a></li>
                     <li class="<?php if ($this->uri->segment(3) == "sejarah") {
                                     echo "active";
                                 } ?>"><a href="<?= base_url('admin/konfigurasi/sejarah') ?>">Sejarah</a></li>
@@ -127,6 +134,12 @@ $role = $this->session->userdata('role');
                                     echo "active";
                                 } ?>"><a href="<?= base_url('admin/konfigurasi/panduan') ?>">Panduan</a></li>
                 </ul>
+
+            <li class="<?php if ($this->uri->segment(2) == "password") {
+                            echo "active";
+                        }
+                        ?>"><a href="<?php echo base_url()
+                                        ?>" class="go-home"><i class="fa fa-globe"></i> <span>Home</span></a></li>
             </li>
 
 
