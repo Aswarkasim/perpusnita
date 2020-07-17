@@ -6,12 +6,20 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class Anggota extends CI_Controller
 {
 
+    public function __construct()
+    {
+        parent::__construct();
+        is_logged_in_admin();
+    }
+
+
     public function index()
     {
         $tombol  = [
             'add'     => 'master/anggota/add',
             'edit'    => 'master/anggota/edit/',
-            'delete'  => 'master/anggota/delete/'
+            'delete'  => 'master/anggota/delete/',
+            'is_active'  => 'master/anggota/is_active/'
         ];
 
         $anggota = $this->Crud_model->listing('tbl_anggota', 'date_created', 'DESC');
@@ -22,6 +30,16 @@ class Anggota extends CI_Controller
             'content' => 'master/anggota/index'
         ];
         $this->load->view('admin/layout/wrapper', $data, FALSE);
+    }
+
+    function is_active($kd_anggota, $is)
+    {
+        $data = [
+            'is_active' => $is
+        ];
+        $this->Crud_model->edit('tbl_anggota', 'kd_anggota', $kd_anggota, $data);
+        $this->session->set_flashdata('msg', 'Akun anggota telah diaktifkan');
+        redirect('master/anggota', 'refresh');
     }
     public function detail($kd_anggota)
     {

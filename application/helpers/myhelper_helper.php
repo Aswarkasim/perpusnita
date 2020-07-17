@@ -12,27 +12,18 @@ if (!function_exists('nominal')) {
 function is_logged_in_user()
 {
     $ci = get_instance();
-    if ($ci->session->userdata('id_user') == '') {
+    if ($ci->session->userdata('kd_anggota') == '') {
         redirect('home/auth');
     }
 }
 function is_logged_in_admin()
 {
     $ci = get_instance();
-    if ($ci->session->userdata('id_admin') == '') {
+    if ($ci->session->userdata('id_user') == '') {
         redirect('admin/auth');
     }
 }
 
-
-function is_logged_in_panitia()
-{
-    $ci = get_instance();
-    if ($ci->session->userdata('id_panitia') == '') {
-
-        redirect('home', 'refresh');
-    }
-}
 
 function post($name)
 {

@@ -45,7 +45,13 @@
                             } ?></td>
 
                         <td>
-                            <a href="<?= base_url($tombol['edit'] . $row->kd_anggota)  ?>" class="btn btn-success btn-xs"><i class="fa fa-edit"></i> Edit</a>
+                            <?php if ($row->is_active == '1') { ?>
+                                <a href="<?= base_url($tombol['is_active'] . $row->kd_anggota . '/0')  ?>" class="btn btn-danger btn-xs alert-active"><i class="fa fa-power-off"></i> Non-aktifkan</a>
+                            <?php } else { ?>
+                                <a href="<?= base_url($tombol['is_active'] . $row->kd_anggota) . '/1'  ?>" class="btn btn-success btn-xs alert-active"><i class="fa fa-power-off"></i> Aktifkan</a>
+
+                            <?php } ?>
+                            <a href="<?= base_url($tombol['edit'] . $row->kd_anggota)  ?>" class="btn btn-warning btn-xs"><i class="fa fa-edit"></i> Edit</a>
                             <a class="btn btn-danger btn-xs tombol-hapus" href="<?= base_url($tombol['delete'] . $row->kd_anggota)  ?>"><i class="fa fa-trash"></i> Hapus</a>
                         </td>
                     </tr>

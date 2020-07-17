@@ -49,3 +49,23 @@ $('.go-home').on('click', function (e) {
 		}
 	})
 })
+
+
+// Tommbol hapus
+$('.alert-active').on('click', function (e) {
+	// Mematikan href
+	e.preventDefault();
+	const href = $(this).attr('href');
+
+	Swal({
+		title: 'Aktifkan user ini?',
+		type: 'warning',
+		showCancelButton: true,
+		confirmButtonColor: '#3085d6',
+		cancelButtonColor: '#d33',
+	}).then((result) => {
+		if (result.value) {
+			document.location.href = href;
+		}
+	})
+})

@@ -12,7 +12,7 @@
                                 <b><label class="pull-right">Nama</label></b>
                             </div>
                             <div class="col-md-8">
-                                <input type="text" class="form-control" name="nm_anggota">
+                                <input type="text" class="form-control" placeholder="Nama Lengkap" name="nm_anggota">
                             </div>
                         </div>
                     </div>
@@ -23,7 +23,7 @@
                                 <b><label class="pull-right">Username</label></b>
                             </div>
                             <div class="col-md-8">
-                                <input type="text" class="form-control" name="username">
+                                <input type="text" class="form-control" placeholder="Username" name="username">
                             </div>
                         </div>
                     </div>
@@ -33,7 +33,11 @@
                                 <b><label class="pull-right">Jenis Kelamin</label></b>
                             </div>
                             <div class="col-md-8">
-                                <input type="text" class="form-control" name="kelamin">
+                                <select name="kelamin" required class="form-control" id="">
+                                    <option value="">--Jenis Kelamin--</option>
+                                    <option value="L">Laki-laki</option>
+                                    <option value="P">Perempuan</option>
+                                </select>
                             </div>
                         </div>
                     </div>
@@ -43,7 +47,7 @@
                                 <b><label class="pull-right">Agama</label></b>
                             </div>
                             <div class="col-md-8">
-                                <input type="text" class="form-control" name="agama">
+                                <input type="text" placeholder="Agama" class="form-control" name="agama">
                             </div>
                         </div>
                     </div>
@@ -56,7 +60,7 @@
                                 <b><label class="pull-right">Tempat Lahir</label></b>
                             </div>
                             <div class="col-md-8">
-                                <input type="text" class="form-control" name="tempat_lahir">
+                                <input type="text" placeholder="Tempat Lahir" class="form-control" name="tempat_lahir">
                             </div>
                         </div>
                     </div>
@@ -76,7 +80,7 @@
                                 <b><label class="pull-right">No Hp</label></b>
                             </div>
                             <div class="col-md-8">
-                                <input type="text" class="form-control" name="no_telepon">
+                                <input type="text" placeholder="No. Hp" class="form-control" name="no_telepon">
                             </div>
                         </div>
                     </div>
@@ -86,7 +90,7 @@
                                 <b><label class="pull-right">Alamat</label></b>
                             </div>
                             <div class="col-md-8">
-                                <input type="text" class="form-control" name="alamat">
+                                <input type="text" placeholder="Alamat" class="form-control" name="alamat">
                             </div>
                         </div>
                     </div>
@@ -115,7 +119,7 @@
 
                     <button class="btn btn-success" type="submit"><i class="fa fa-folder"></i> Registrasi</button><br><br>
                     <p>Sudah punya akun? silakan <a href="<?= base_url('user/auth') ?>">Login</a></p>
-                    <p class="mt-5 mb-3 text-muted">© 2017-2019</p>
+                    <p class="mt-5 mb-3 text-muted">© 2020</p>
 
 
                 </form>

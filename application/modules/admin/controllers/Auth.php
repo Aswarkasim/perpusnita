@@ -6,8 +6,13 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class Auth extends CI_Controller
 {
 
+
     public function index()
     {
+        if ($this->session->userdata('id_user') != '') {
+            redirect('admin/dashboard');
+        }
+
         $valid = $this->form_validation;
 
         $valid->set_rules(

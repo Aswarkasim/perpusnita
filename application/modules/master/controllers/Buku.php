@@ -9,6 +9,7 @@ class Buku extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        is_logged_in_admin();
         $this->load->model('master/Buku_model');
     }
 
