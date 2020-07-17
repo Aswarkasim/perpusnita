@@ -20,6 +20,7 @@
                     <th>JK</th>
                     <th>No Telp</th>
                     <th width="100px">Status Pinjam</th>
+                    <th width="100px">Status Akun</th>
                     <th width="200px">Aksi</th>
                 </tr>
             </thead>
@@ -36,6 +37,13 @@
                             } else {
                                 echo '<div class="label label-danger">Pinjam</div>';
                             } ?></td>
+
+                        <td><?php if ($row->is_active == '1') {
+                                echo '<div class="label label-success">Aktif</div>';
+                            } else {
+                                echo '<div class="label label-danger">Tidak Aktif</div>';
+                            } ?></td>
+
                         <td>
                             <a href="<?= base_url($tombol['edit'] . $row->kd_anggota)  ?>" class="btn btn-success btn-xs"><i class="fa fa-edit"></i> Edit</a>
                             <a class="btn btn-danger btn-xs tombol-hapus" href="<?= base_url($tombol['delete'] . $row->kd_anggota)  ?>"><i class="fa fa-trash"></i> Hapus</a>
@@ -49,35 +57,3 @@
     </div>
     <!-- /.box-body -->
 </div>
-
-
-
-<!-- <script>
-    userData();
-
-    function userData() {
-        $.ajax({
-            type: 'POST',
-            url: '<?php echo base_url() . "admin/user/userData" ?>',
-            dataType: 'json',
-            success: function(data) {
-                var baris = '';
-
-                for (var i = 0; i < data.length; i++) {
-                    baris += '<tr>' +
-                        '<td>' + (i + 1) + '</td>' +
-                        '<td><img width="50px" src="<?= base_url('assets/uploads/images/') ?>' + data[i].image + '" alt=""></td>' +
-                        '<td>' +
-                        '<strong>' + data[i].nama_user + '</strong><br>' +
-                        '<p>' + data[i].email + ' - ' + data[i].role + '</p>' +
-                        '</td>' +
-                        '<td><a href="<?php
-                                        ?>/' + data[i].id_user + '" class="btn btn-sm btn-primary"><i class="fas fa fa-edit"></i> Edit</a></td>' +
-                        '</tr>';
-                }
-
-                $('#targetData').html(baris);
-            }
-        })
-    }
-</script> -->

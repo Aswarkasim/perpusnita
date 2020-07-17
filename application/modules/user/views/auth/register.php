@@ -1,50 +1,18 @@
 <div class="jumbotron bg-white">
     <div class="row text-center">
         <div class="container-fluid">
-            <div class="offset-md-4 col-md-4">
-                <form action="<?= base_url('home/auth/register')  ?>" method="post">
+            <div class="offset-md-3 col-md-5">
+                <form action="<?= base_url('user/auth/register')  ?>" method="post">
                     <h1 class="h3 mb-3 font-weight-normal">Registrasi</h1>
 
                     <?= validation_errors('<div class="text text-danger">', '</div>') ?>
                     <div class="form-group">
                         <div class="row">
                             <div class="col-md-4">
-                                <label for="" class="pull-right"><strong>Username</strong></label>
+                                <b><label class="pull-right">Nama</label></b>
                             </div>
                             <div class="col-md-8">
-                                <input class="form-control" name="username" placeholder="Username" type="text" value="<?= set_value('username') ?>">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="form-gorup">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <label for="" class="pull-right"><strong>Alamat Email</strong></label>
-                            </div>
-                            <div class="col-md-8">
-                                <input class="form-control" name="email" placeholder="Email" type="email" value="<?= set_value('email') ?>">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-gorup">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <label for="" class="pull-right"><strong>No Hp</strong></label>
-                            </div>
-                            <div class="col-md-8">
-                                <input class="form-control" name="nohp" placeholder="No. Hp" type="text" value="<?= set_value('nohp') ?>">
-                            </div>
-                        </div>
-                    </div>
-                    <br>
-                    <div class="form-group">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <label for="" class="pull-right"><strong>Nama Lengkap</strong></label>
-                            </div>
-                            <div class="col-md-8">
-                                <input class="form-control" name="namalengkap" placeholder="Nama Lengkap" type="text" value="<?= set_value('namalengkap') ?>">
+                                <input type="text" class="form-control" name="nm_anggota">
                             </div>
                         </div>
                     </div>
@@ -52,52 +20,76 @@
                     <div class="form-group">
                         <div class="row">
                             <div class="col-md-4">
-                                <label for="" class="pull-right"><strong>Tanggal Lahir</strong></label>
+                                <b><label class="pull-right">Username</label></b>
                             </div>
                             <div class="col-md-8">
-                                <input type="date" class="form-control" name="tanggal_lahir" placeholder="Tanggal Lahir" type="text" value="<?= set_value('tanggal_lahir') ?>">
+                                <input type="text" class="form-control" name="username">
                             </div>
                         </div>
                     </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <b><label class="pull-right">Jenis Kelamin</label></b>
+                            </div>
+                            <div class="col-md-8">
+                                <input type="text" class="form-control" name="kelamin">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <b><label class="pull-right">Agama</label></b>
+                            </div>
+                            <div class="col-md-8">
+                                <input type="text" class="form-control" name="agama">
+                            </div>
+                        </div>
+                    </div>
+
+
 
                     <div class="form-group">
                         <div class="row">
                             <div class="col-md-4">
-                                <label for="">Kepesertaan</label>
+                                <b><label class="pull-right">Tempat Lahir</label></b>
                             </div>
                             <div class="col-md-8">
-                                <select class="form-control" name="is_ptik" id="is_ptik">
-                                    <option data-display="Status Kepesertaan">Status Kepesertaan</option>
-                                    <option value="1">Mahasiswa PTIK UNM</option>
-                                    <option value="0">Umum</option>
-                                </select>
+                                <input type="text" class="form-control" name="tempat_lahir">
                             </div>
                         </div>
-
                     </div>
-
-                    <div class="form-group" id="nim">
+                    <div class="form-group">
                         <div class="row">
                             <div class="col-md-4">
-                                <label for="" class="pull-right"><strong>NIM</strong></label>
+                                <b><label class="pull-right">Tanggal Lahir</label></b>
                             </div>
                             <div class="col-md-8">
-                                <input type="text" class="form-control" name="nim" placeholder="NIM" type="text" value="<?= set_value('nim') ?>">
+                                <input type="date" class="form-control" name="tanggal_lahir">
                             </div>
                         </div>
                     </div>
-
-                    <script type="text/javascript">
-                        $(function() {
-                            $("#is_ptik").change(function() {
-                                if ($(this).val() == "1") {
-                                    $("#nim").show();
-                                } else {
-                                    $("#nim").hide();
-                                }
-                            });
-                        });
-                    </script>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <b><label class="pull-right">No Hp</label></b>
+                            </div>
+                            <div class="col-md-8">
+                                <input type="text" class="form-control" name="no_telepon">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <b><label class="pull-right">Alamat</label></b>
+                            </div>
+                            <div class="col-md-8">
+                                <input type="text" class="form-control" name="alamat">
+                            </div>
+                        </div>
+                    </div>
 
                     <div class="form-group">
                         <div class="row">
