@@ -8,7 +8,7 @@
                 <img width="100%" src="<?= base_url('assets/uploads/logo.png'); ?>" alt="">
             </div>
             <div class="col-md-11">
-                <h2 class="mb-0"><b>PERPUSTAKAAN</b></h2>
+                <h2 class="mb-0"><b>PERPUSTAKAAN NITA</b></h2>
                 <h3><b> SMKN 5 MAKASSAR</b></h3>
             </div>
         </div>
