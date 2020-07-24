@@ -34,8 +34,13 @@ class Peminjaman extends CI_Controller
     function cek_kd()
     {
         $kd_anggota = $this->input->post('kd_anggota');
-
-        redirect('admin/peminjaman/pinjam/' . $kd_anggota, 'refresh');
+        $data = $this->Crud_model->listingOne('tbl_anggota', 'kd_anggota', $kd_anggota);
+        if ($data) {
+            redirect('admin/peminjaman/pinjam/' . $kd_anggota, 'refresh');
+        } else {
+            $this->session->set_flashdata('msg_er', 'Data tidak ditemukan');
+            redirect('admin/peminjaman/index');
+        }
     }
 
     function pinjam($kd_anggota)

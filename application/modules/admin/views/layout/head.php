@@ -16,16 +16,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- Font Awesome -->
   <link rel="stylesheet" href="<?= base_url('assets/admin/') ?>bower_components/font-awesome/css/font-awesome.min.css">
   <!-- Ionicons -->
-  <link rel="stylesheet" href="<?= base_url('assets/admin/') ?>bower_components/Ionicons/css/ionicons.min.css">
-  <link rel="stylesheet" href="<?= base_url('assets/admin/') ?>bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+  <link rel="stylesheet" href="<?= base_url('assets/admin/') ?>bower_components/datatables.net/css/dataTables.bootstrap.min.css">
   <link rel="stylesheet" href="<?= base_url('assets/admin/') ?>bower_components/select2/dist/css/select2.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="<?= base_url('assets/admin/') ?>dist/css/AdminLTE.min.css">
 
   <link rel="stylesheet" href="<?= base_url('assets/admin/') ?>dist/css/skins/skin-yellow.min.css">
 
-  <!-- Google Font -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+  <!-- Google Font -->\
   <script src="<?= base_url('assets/admin/') ?>bower_components/jquery/dist/jquery.min.js"></script>
 
 

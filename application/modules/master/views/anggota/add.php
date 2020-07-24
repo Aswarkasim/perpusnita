@@ -19,10 +19,21 @@
                     <div class="form-group">
                         <div class="row">
                             <div class="col-md-3">
+                                <b><label class="pull-right">NIS</label></b>
+                            </div>
+                            <div class="col-md-9">
+                                <input type="text" class="form-control" placeholder="NIS" name="kd_anggota">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-3">
                                 <label for="" class="pull-right">Nama</label>
                             </div>
                             <div class="col-md-9">
-                                <input type="text" name="nm_anggota" class="form-control" value="<?= set_value('nm_anggota') ?>">
+                                <input type="text" placeholder="Nama" name="nm_anggota" class="form-control" value="<?= set_value('nm_anggota') ?>">
                             </div>
                         </div>
                     </div>
@@ -32,10 +43,10 @@
                                 <label for="" class="pull-right">Tempat tanggal lahir</label>
                             </div>
                             <div class="col-md-6">
-                                <input type="text" name="tempat_lahir" class="form-control" value="<?= set_value('tempat_lahir') ?>">
+                                <input type="text" placeholder="Tempat Lahir" name="tempat_lahir" class="form-control" value="<?= set_value('tempat_lahir') ?>">
                             </div>
                             <div class="col-md-3">
-                                <input type="date" name="tanggal_lahir" class="form-control" value="<?= set_value('tanggal_lahir') ?>">
+                                <input type="date" placeholder="Tanggal Lahir" name="tanggal_lahir" class="form-control" value="<?= set_value('tanggal_lahir') ?>">
                             </div>
                         </div>
                     </div>
@@ -45,7 +56,7 @@
                                 <label for="" class="pull-right">Agama</label>
                             </div>
                             <div class="col-md-9">
-                                <input type="text" name="agama" class="form-control" value="<?= set_value('agama') ?>">
+                                <input type="text" placeholder="Agama" name="agama" class="form-control" value="<?= set_value('agama') ?>">
                             </div>
                         </div>
                     </div>
@@ -68,7 +79,7 @@
                                 <label for="" class="pull-right">Alamat</label>
                             </div>
                             <div class="col-md-9">
-                                <input type="text" name="alamat" class="form-control" value="<?= set_value('alamat') ?>">
+                                <input type="text" placeholder="Alamat" name="alamat" class="form-control" value="<?= set_value('alamat') ?>">
                             </div>
                         </div>
                     </div>
@@ -78,7 +89,7 @@
                                 <label for="" class="pull-right">No. Telepon</label>
                             </div>
                             <div class="col-md-9">
-                                <input type="text" name="no_telepon" class="form-control" value="<?= set_value('no_telepon') ?>">
+                                <input type="text" placeholder="No. Telepon" name="no_telepon" class="form-control" value="<?= set_value('no_telepon') ?>">
                             </div>
                         </div>
                     </div>

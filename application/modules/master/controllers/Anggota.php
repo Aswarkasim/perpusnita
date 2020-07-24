@@ -56,6 +56,7 @@ class Anggota extends CI_Controller
     {
         $required = '%s tidak boleh kosong';
         $valid = $this->form_validation;
+        $valid->set_rules('kd_anggota', 'NIS', 'required|is_unique[tbl_anggota.kd_anggota]', ['required' => $required, 'is_unique' => 'NIS Telah terdaftar']);
         $valid->set_rules('nm_anggota', 'Nama Anggota', 'required', ['required' => $required]);
         $valid->set_rules('tempat_lahir', 'Tempat Lahir', 'required', ['required' => $required]);
         $valid->set_rules('tanggal_lahir', 'Tanggal Lahir', 'required', ['required' => $required]);
@@ -81,7 +82,7 @@ class Anggota extends CI_Controller
 
                     $i = $this->input;
                     $data = [
-                        'kd_anggota'    => 'AG' . random_string('numeric', '15'),
+                        'kd_anggota'    => $i->post('kd_anggota'),
                         'nm_anggota'    => $i->post('nm_anggota'),
                         'tempat_lahir'  => $i->post('tempat_lahir'),
                         'tanggal_lahir' => $i->post('tanggal_lahir'),
@@ -136,7 +137,7 @@ class Anggota extends CI_Controller
 
                     $i = $this->input;
                     $data = [
-                        'kd_anggota'    => 'AG' . random_string('numeric', '15'),
+                        'kd_anggota'    => $kd_anggota,
                         'nm_anggota'    => $i->post('nm_anggota'),
                         'tempat_lahir'  => $i->post('tempat_lahir'),
                         'tanggal_lahir' => $i->post('tanggal_lahir'),
@@ -153,7 +154,7 @@ class Anggota extends CI_Controller
             } else {
                 $i = $this->input;
                 $data = [
-                    'kd_anggota'    => 'AG' . random_string('numeric', '15'),
+                    'kd_anggota'    => $kd_anggota,
                     'nm_anggota'    => $i->post('nm_anggota'),
                     'tempat_lahir'  => $i->post('tempat_lahir'),
                     'tanggal_lahir' => $i->post('tanggal_lahir'),
@@ -249,5 +250,17 @@ class Anggota extends CI_Controller
             'konfigurasi' => $konfigurasi,
         ];
         $this->load->view('master/anggota/cetak', $data, FALSE);
+    }
+
+    function cetakKartu($kd_anggota)
+    {
+        $anggota = $this->Crud_model->listingOne('tbl_anggota', 'kd_anggota', $kd_anggota);
+        $konfigurasi = $this->Crud_model->listingOne('tbl_konfigurasi', 'id_konfigurasi', '1');
+        $data = [
+
+            'anggota' => $anggota,
+            'konfigurasi' => $konfigurasi,
+        ];
+        $this->load->view('master/anggota/kartu', $data, FALSE);
     }
 }

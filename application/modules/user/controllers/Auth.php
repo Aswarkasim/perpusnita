@@ -17,8 +17,8 @@ class Auth extends CI_Controller
         $valid = $this->form_validation;
 
         $valid->set_rules(
-            'username',
-            'Username',
+            'kd_anggota',
+            'Kode Anggota',
             'required',
             array('required' => '%s harus diisi')
         );
@@ -40,9 +40,9 @@ class Auth extends CI_Controller
         } else {
 
             $i          = $this->input;
-            $username      = $i->post('username');
+            $kd_anggota      = $i->post('kd_anggota');
             $password   = $i->post('password');
-            $cek_login  = $this->UM->login($username, $password);
+            $cek_login  = $this->UM->login($kd_anggota, $password);
             //print_r($email); die;
 
             if (!empty($cek_login) == 1) {
@@ -77,9 +77,10 @@ class Auth extends CI_Controller
 
 
         $required = '%s tidak boleh kosong';
-        $is_username = '%s ' . post('username') . ' telah ada, silakan masukkan %s yang lain';
+        $is_username = '%s ' . post('username') . ' telah ada, silakan masukkan username yang lain';
         $is_email = '%s ' . post('email') . ' telah ada, silakan masukkan %s yang lain';
         $valid = $this->form_validation;
+        $valid->set_rules('kd_anggota', 'NIS', 'required|is_unique[tbl_anggota.kd_anggota]', ['required' => $required, 'is_unique' => 'NIS Telah terdaftar']);
         $valid->set_rules('nm_anggota', 'Nama Lengkap', 'required', array('required' => $required));
         $valid->set_rules('tanggal_lahir', 'Tanggal lahir', 'required', array('required' => $required));
         $valid->set_rules('username', 'Username', 'required|is_unique[tbl_anggota.username]', array('required' => $required, 'is_unique' => $is_username));

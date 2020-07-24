@@ -1,10 +1,19 @@
 const flashdata = $('.flash-data').data('flashdata');
+const flashdata_er = $('.gagal').data('flashdata');
 
 if (flashdata) {
 	Swal({
 		title: 'Data',
 		text: flashdata,
 		type: 'success'
+	})
+}
+
+if (flashdata_er) {
+	Swal({
+		title: 'Error',
+		text: flashdata_er,
+		type: 'error'
 	})
 }
 

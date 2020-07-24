@@ -1,8 +1,22 @@
 <div class="flash-data" data-flashdata="<?= $this->session->flashdata('msg') ?>"></div>
 <div class="gagal" data-flashdata="<?= $this->session->flashdata('msg_er') ?>"></div>
+
+<div class="jumbotron mb-0 pb-2 pt-2">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-1">
+                <img width="100%" src="<?= base_url('assets/uploads/logo.png'); ?>" alt="">
+            </div>
+            <div class="col-md-11">
+                <h2 class="mb-0"><b>PERPUSTAKAAN</b></h2>
+                <h3><b> SMKN 5 MAKASSAR</b></h3>
+            </div>
+        </div>
+    </div>
+</div>
+
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container">
-        <a class="navbar-brand" href="<?= base_url() ?>"><i class="fa fa-book"></i> PERPUSTAKAAN SMKN 5 MAKASSAR</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>

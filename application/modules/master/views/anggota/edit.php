@@ -19,6 +19,17 @@
                     <div class="form-group">
                         <div class="row">
                             <div class="col-md-3">
+                                <b><label class="pull-right">NIS</label></b>
+                            </div>
+                            <div class="col-md-9">
+                                <input type="text" class="form-control" placeholder="NIS" name="kd_anggota">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-3">
                                 <label for="" class="pull-right">Nama</label>
                             </div>
                             <div class="col-md-9">

@@ -15,7 +15,7 @@
 
                 <div class="form-group">
                     <label for="inputEmail" class="sr-only">Email address</label>
-                    <input name="username" class="form-control" placeholder="Username atau email" type="text">
+                    <input name="kd_anggota" class="form-control" placeholder="Kode Anggota" type="text">
                 </div>
                 <div class="form-group">
                     <label for="inputPassword" class="sr-only">Password</label>
