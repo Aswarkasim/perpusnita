@@ -72,7 +72,7 @@ class Peminjaman extends CI_Controller
             'id_user'           => $i->post('id_user'),
             'kd_buku'           => $i->post('kd_buku'),
             'tanggal_pinjam'    => $i->post('tgl_pinjam'),
-            'tanggal_kembali'   => $i->post('tgl_kembali'),
+            'tanggal_harus_kembali'   => $i->post('tgl_kembali'),
             'keterangan'        => $i->post('keterangan')
 
         ];
@@ -138,11 +138,11 @@ class Peminjaman extends CI_Controller
         redirect('admin/peminjaman/pinjam/' . $kd_anggota, 'refresh');
     }
 
-    function delete($id_peminjaman, $kd_anggota)
+    function delete($id_peminjaman)
     {
         $this->Crud_model->delete('tbl_peminjaman', 'kd_peminjaman', $id_peminjaman);
         $this->session->set_flashdata('msg', 'data dihapus');
-        redirect('admin/peminjaman/pinjam/' . $kd_anggota, 'refresh');
+        redirect('admin/peminjaman/', 'refresh');
     }
 
     function laporan()

@@ -29,7 +29,10 @@
                 foreach ($anggota as $row) { ?>
                     <tr>
                         <td><?= $no ?></td>
-                        <td><a href="<?= base_url('master/anggota/detail/' . $row->kd_anggota) ?>"><b> <?= $row->nm_anggota ?></b></a></td>
+                        <td>
+                            <a href="<?= base_url('master/anggota/detail/' . $row->kd_anggota) ?>"><b> <?= $row->nm_anggota ?></b></a>
+                            <p><?= 'NIS : ' . $row->kd_anggota; ?></p>
+                        </td>
                         <td><?= $row->kelamin ?></td>
                         <td><?= $row->no_telepon ?><br></td>
                         <td><?php if ($row->status_pinjam == 'Bebas') {

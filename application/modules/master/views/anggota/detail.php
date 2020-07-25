@@ -12,6 +12,17 @@
                 <div class="form-group">
                     <div class="row">
                         <div class="col-md-3">
+                            <label for="" class="pull-right">NIS</label>
+                        </div>
+                        <div class="col-md-9">
+                            <?= $anggota->kd_anggota ?>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-3">
                             <label for="" class="pull-right">Nama</label>
                         </div>
                         <div class="col-md-9">
