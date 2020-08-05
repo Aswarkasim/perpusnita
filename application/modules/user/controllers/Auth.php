@@ -95,7 +95,7 @@ class Auth extends CI_Controller
         } else {
             $i = $this->input;
             $data = [
-                'kd_anggota'       => random_string('numeric', 15),
+                'kd_anggota'        => $i->post('kd_anggota'),
                 'username'          => $i->post('username'),
                 'nm_anggota'        => $i->post('nm_anggota'),
                 'agama'             => $i->post('agama'),
