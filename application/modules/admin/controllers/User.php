@@ -41,7 +41,7 @@ class User extends CI_Controller
 
         $valid->set_rules('nama_user', 'Nama User', 'required');
         $valid->set_rules('email', 'Email', 'required|is_unique[tbl_user.email]|valid_email');
-        $valid->set_rules('password', 'Password', 'required');
+        $valid->set_rules('password', 'Password', 'required|min_length[6]|max_length[10]');
         $valid->set_rules('re_password', 'Retype Password', 'required|matches[password]');
 
         if ($valid->run() === FALSE) {

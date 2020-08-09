@@ -22,6 +22,11 @@ class Dashboard extends CI_Controller
         $kategori = $this->Crud_model->listing('tbl_kategori');
         $anggota = $this->Crud_model->listing('tbl_anggota');
 
+        $peminjaman = $this->Crud_model->listingOneAll('tbl_peminjaman', 'status_kembali', 'Belum');
+        $hilang = $this->Crud_model->listingOneAll('tbl_peminjaman', 'status_kembali', 'Hilang');
+
+
+
         $data = [
             'title'     => 'Dashboard',
             'user'      => $user,
@@ -29,6 +34,8 @@ class Dashboard extends CI_Controller
             'penerbit'      => $penerbit,
             'kategori'      => $kategori,
             'anggota'      => $anggota,
+            'peminjaman'      => $peminjaman,
+            'hilang'      => $hilang,
             'content'   => 'admin/dashboard/index'
         ];
 

@@ -14,8 +14,8 @@
                 ?>
 
                 <div class="form-group">
-                    <label for="inputEmail" class="sr-only">Email address</label>
-                    <input name="kd_anggota" class="form-control" placeholder="Kode Anggota" type="text">
+                    <label for="inputEmail" class="sr-only">NIS</label>
+                    <input name="kd_anggota" class="form-control" placeholder="Kode Anggota" type="number">
                 </div>
                 <div class="form-group">
                     <label for="inputPassword" class="sr-only">Password</label>

@@ -107,7 +107,7 @@ class Peminjaman extends CI_Controller
         ];
         $buku = $this->Crud_model->listingOne('tbl_buku', 'kd_buku', $kd_buku);
 
-        if ($status == 'Kembali') {
+        if (($status == 'Kembali') || $status == 'Terlambat') {
             $jumlahBuku =  $buku->jumlah + 1;
         } else if ($status == 'Hilang') {
             $jumlahBuku = $buku->jumlah - 1;

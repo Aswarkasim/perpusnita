@@ -106,6 +106,8 @@
                                         echo '<div class="label label-warning">Belum</div>';
                                     } else if ($row->status_kembali == "Kembali") {
                                         echo '<div class="label label-success">Kembali</div>';
+                                    } else if ($row->status_kembali == "Terlambat") {
+                                        echo '<div class="label label-info">Terlambat</div>';
                                     } else {
                                         echo '<div class="label label-danger">Hilang</div>';
                                     } ?></td>
@@ -119,6 +121,10 @@
                                         <ul class="dropdown-menu" role="menu">
                                             <?php if ($row->status_kembali != 'Kembali') { ?>
                                                 <li><a href="<?= base_url($status . $row->kd_peminjaman . '/' . $row->kd_anggota . '/Kembali/' . $row->kd_buku)  ?>"><i class="fa fa-check"></i> Kembali</a></li>
+                                            <?php } ?>
+
+                                            <?php if ($row->status_kembali != 'Terlambat') { ?>
+                                                <li><a href="<?= base_url($status . $row->kd_peminjaman . '/' . $row->kd_anggota . '/Terlambat/' . $row->kd_buku)  ?>"><i class="fa fa-clock-o"></i> Terlambat</a></li>
                                             <?php } ?>
                                             <!-- <li><a href="<?= base_url($status . $row->kd_peminjaman . '/' . $row->kd_anggota . '/Belum/' . $row->kd_buku)  ?>"><i class="fa fa-circle"></i> Belum</a></li> -->
 

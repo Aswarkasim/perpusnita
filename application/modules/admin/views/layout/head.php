@@ -23,7 +23,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
   <link rel="stylesheet" href="<?= base_url('assets/admin/') ?>dist/css/skins/skin-yellow.min.css">
 
-  <!-- Google Font -->\
+  <!-- Google Font -->
   <script src="<?= base_url('assets/admin/') ?>bower_components/jquery/dist/jquery.min.js"></script>
 
 

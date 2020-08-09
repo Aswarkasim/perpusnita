@@ -24,10 +24,12 @@ class Auth extends CI_Controller
         $valid->set_rules(
             'password',
             'Password',
-            'required|min_length[6]',
+            'required|min_length[6]|max_length[10]',
             array(
                 'required'     => 'Password harus diisi',
-                'min_length'  => 'Password minimal 6 karakter'
+                'min_length'  => 'Password minimal 6 karakter',
+                'min_length' => '% minimal 6 karakter',
+                'max_length' => '%s maksimal 8 karakter'
             )
         );
 

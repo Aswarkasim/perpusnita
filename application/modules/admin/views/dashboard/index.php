@@ -49,14 +49,14 @@
         <!-- small box -->
         <div class="small-box bg-yellow">
             <div class="inner">
-                <h3><?= count($kategori) ?></h3>
+                <h3><?= count($peminjaman) ?></h3>
 
-                <p>Kategori</p>
+                <p>Peminjaman</p>
             </div>
             <div class="icon">
                 <i class="fa fa-list"></i>
             </div>
-            <a href="<?= base_url('transaksi/keluar') ?>" class="small-box-footer">Lihat Selengkapnya <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="<?= base_url('admin/peminjaman/index') ?>" class="small-box-footer">Lihat Selengkapnya <i class="fa fa-arrow-circle-right"></i></a>
         </div>
     </div>
     <!-- ./col -->
@@ -64,14 +64,14 @@
         <!-- small box -->
         <div class="small-box bg-red">
             <div class="inner">
-                <h3><?= count($anggota) ?></h3>
+                <h3><?= count($hilang) ?></h3>
 
-                <p>Anggota</p>
+                <p>Buku Hilang</p>
             </div>
             <div class="icon">
-                <i class="fa fa-users"></i>
+                <i class="fa fa-file"></i>
             </div>
-            <a href="<?= base_url('admin/user') ?>" class="small-box-footer">Lihat Selengkapnya <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="<?= base_url('admin/peminjaman/index') ?>" class="small-box-footer">Lihat Selengkapnya <i class="fa fa-arrow-circle-right"></i></a>
         </div>
     </div>
     <!-- ./col -->
