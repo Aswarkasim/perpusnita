@@ -7,7 +7,7 @@
   <style type="text/css">
     body {
       color: aliceblue;
-      font-size: 20px;
+      font-size: 12px;
     }
 
     @page {
@@ -26,7 +26,7 @@
       top: 120px;
     }
 
-    #qrCode {
+    #foto {
       position: absolute;
       top: 10px;
       left: 10px;
@@ -84,7 +84,16 @@
             <td>: <?= $anggota->no_telepon; ?></td>
           </tr>
 
+          <tr>
+            <td></td>
+            <td>
+              <br>
+              <img src="<?= base_url('assets/uploads/images/anggota/') . $anggota->foto ?>" width="60px" alt="">
+            </td>
+          </tr>
+
         </table>
+
       </div>
     </div>
   </div>

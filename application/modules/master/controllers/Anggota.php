@@ -56,7 +56,7 @@ class Anggota extends CI_Controller
     {
         $required = '%s tidak boleh kosong';
         $valid = $this->form_validation;
-        $valid->set_rules('kd_anggota', 'NIS', 'required|is_unique[tbl_anggota.kd_anggota]', ['required' => $required, 'is_unique' => 'NIS Telah terdaftar']);
+        $valid->set_rules('kd_anggota', 'NIS', 'required|is_unique[tbl_anggota.kd_anggota]|max_length[6]', ['max_length' => 'NIS Maksimal 6 karakter', 'required' => $required, 'is_unique' => 'NIS Telah terdaftar']);
         $valid->set_rules('nm_anggota', 'Nama Anggota', 'required', ['required' => $required]);
         $valid->set_rules('tempat_lahir', 'Tempat Lahir', 'required', ['required' => $required]);
         $valid->set_rules('tanggal_lahir', 'Tanggal Lahir', 'required', ['required' => $required]);

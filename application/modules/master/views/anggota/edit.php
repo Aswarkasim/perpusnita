@@ -22,7 +22,7 @@
                                 <b><label class="pull-right">NIS</label></b>
                             </div>
                             <div class="col-md-9">
-                                <input type="text" class="form-control" placeholder="NIS" name="kd_anggota">
+                                <input type="text" class="form-control" value="<?= $anggota->kd_anggota; ?>" placeholder="NIS" name="kd_anggota">
                             </div>
                         </div>
                     </div>

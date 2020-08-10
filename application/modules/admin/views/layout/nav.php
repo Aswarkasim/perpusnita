@@ -142,6 +142,9 @@ $role = $this->session->userdata('role');
                                         ?>" class="go-home"><i class="fa fa-globe"></i> <span>Home</span></a></li>
             </li>
 
+            <li><a href="<?= base_url('admin/auth/logout') ?>" class="logout"><i class="fa fa-sign-out"></i> <span>Log Out</span></a></li>
+            </li>
+
 
         </ul>
         <!-- /.sidebar-menu -->

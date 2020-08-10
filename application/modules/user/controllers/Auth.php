@@ -81,7 +81,7 @@ class Auth extends CI_Controller
         $is_username = '%s ' . post('username') . ' telah ada, silakan masukkan username yang lain';
         $is_email = '%s ' . post('email') . ' telah ada, silakan masukkan %s yang lain';
         $valid = $this->form_validation;
-        $valid->set_rules('kd_anggota', 'NIS', 'required|is_unique[tbl_anggota.kd_anggota]', ['required' => $required, 'is_unique' => 'NIS Telah terdaftar']);
+        $valid->set_rules('kd_anggota', 'NIS', 'required|is_unique[tbl_anggota.kd_anggota]|max_length[6]', ['max_length' => 'NIS Maksimal 6 karakter', 'required' => $required, 'is_unique' => 'NIS Telah terdaftar']);
         $valid->set_rules('nm_anggota', 'Nama Lengkap', 'required', array('required' => $required));
         $valid->set_rules('tanggal_lahir', 'Tanggal lahir', 'required', array('required' => $required));
         $valid->set_rules('username', 'Username', 'required|is_unique[tbl_anggota.username]', array('required' => $required, 'is_unique' => $is_username));
