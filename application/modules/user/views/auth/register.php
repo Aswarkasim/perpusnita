@@ -38,6 +38,29 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <b><label class="pull-right">Jurusan</label></b>
+                            </div>
+                            <div class="col-md-8">
+                                <input type="text" class="form-control" placeholder="Jurusan" name="jurusan">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <b><label class="pull-right">Kelas</label></b>
+                            </div>
+                            <div class="col-md-8">
+                                <input type="text" class="form-control" placeholder="Kelas" name="kelas">
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="form-group">
                         <div class="row">
                             <div class="col-md-4">

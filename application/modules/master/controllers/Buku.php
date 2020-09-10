@@ -35,9 +35,11 @@ class Buku extends CI_Controller
     public function detail($kd_buku)
     {
 
+        $kode_buku = $this->Crud_model->listing('tbl_kode_buku');
         $buku = $this->Buku_model->listingBuku($kd_buku)->row();
         $data = [
             'buku' => $buku,
+            'kode_buku' => $kode_buku,
             'content' => 'master/buku/detail'
         ];
         $this->load->view('admin/layout/wrapper', $data, FALSE);
@@ -47,11 +49,14 @@ class Buku extends CI_Controller
     {
         $penerbit = $this->Crud_model->listing('tbl_penerbit');
         $kategori = $this->Crud_model->listing('tbl_kategori');
+        $kode_buku = $this->Crud_model->listing('tbl_kode_buku');
+
+
 
         $required = '%s tidak boleh kosong';
         $valid = $this->form_validation;
         $valid->set_rules('judul_buku', 'Judul Buku', 'required', ['required' => $required]);
-        $valid->set_rules('kd_buku', 'Kode Buku', 'required', ['required' => $required]);
+        $valid->set_rules('kd_buku', 'Kode Buku', 'is_unique[tbl_buku.kd_buku]', ['required' => $required, 'is_unique' => '%s telah digunakan']);
         $valid->set_rules('penulis', 'Penulis', 'required', ['required' => $required]);
         $valid->set_rules('sinopsis', 'Sinopsis', 'required', ['required' => $required]);
         $valid->set_rules('bahasa', 'Bahasa', 'required', ['required' => $required]);
@@ -65,6 +70,7 @@ class Buku extends CI_Controller
                 if (!$this->upload->do_upload('cover')) {
                     $data = [
                         'penerbit' => $penerbit,
+                        'kode_buku' => $kode_buku,
                         'kategori' => $kategori,
                         'error'     => $this->upload->display_errors(),
                         'content'   => 'master/buku/add'
@@ -97,6 +103,7 @@ class Buku extends CI_Controller
         $data = [
             'penerbit' => $penerbit,
             'kategori' => $kategori,
+            'kode_buku' => $kode_buku,
             'content'   => 'master/buku/add'
         ];
         $this->load->view('admin/layout/wrapper', $data, FALSE);
@@ -106,11 +113,12 @@ class Buku extends CI_Controller
         $buku = $this->Crud_model->listingOne('tbl_buku', 'kd_buku', $kd_buku);
         $penerbit = $this->Crud_model->listing('tbl_penerbit');
         $kategori = $this->Crud_model->listing('tbl_kategori');
+        $kode_buku = $this->Crud_model->listing('tbl_kode_buku');
 
         $required = '%s tidak boleh kosong';
         $valid = $this->form_validation;
         $valid->set_rules('judul_buku', 'Judul Buku', 'required', ['required' => $required]);
-        $valid->set_rules('kd_buku', 'Kode Buku', 'required', ['required' => $required]);
+        // $valid->set_rules('kd_buku', 'Kode Buku', 'required', ['required' => $required]);
         $valid->set_rules('penulis', 'Penulis', 'required', ['required' => $required]);
         $valid->set_rules('sinopsis', 'Sinopsis', 'required', ['required' => $required]);
         $valid->set_rules('bahasa', 'Bahasa', 'required', ['required' => $required]);
@@ -124,6 +132,7 @@ class Buku extends CI_Controller
                 if (!$this->upload->do_upload('cover')) {
                     $data = [
                         'penerbit' => $penerbit,
+                        'kode_buku' => $kode_buku,
                         'kategori' => $kategori,
                         'buku' => $buku,
                         'error'     => $this->upload->display_errors(),
@@ -178,6 +187,7 @@ class Buku extends CI_Controller
         $data = [
             'penerbit' => $penerbit,
             'buku' => $buku,
+            'kode_buku' => $kode_buku,
             'kategori' => $kategori,
             'content'   => 'master/buku/edit'
         ];

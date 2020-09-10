@@ -35,6 +35,9 @@ $role = $this->session->userdata('role');
                     <li class="<?php if ($this->uri->segment(2) == "buku") {
                                     echo "active";
                                 } ?>"><a href="<?= base_url('master/buku') ?>">Data Buku</a></li>
+                    <li class="<?php if ($this->uri->segment(2) == "kode_buku") {
+                                    echo "active";
+                                } ?>"><a href="<?= base_url('master/kode_buku') ?>">Kode Buku</a></li>
                     <li class="<?php if ($this->uri->segment(2) == "penerbit") {
                                     echo "active";
                                 } ?>"><a href="<?= base_url('master/penerbit') ?>">Data Penerbit</a></li>

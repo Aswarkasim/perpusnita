@@ -24,7 +24,12 @@
                                         <label for="" class="pull-right">Kode Buku</label>
                                     </div>
                                     <div class="col-md-9">
-                                        <input type="text" name="kd_buku" class="form-control" value="<?= random_string('numeric', '5') ?>">
+                                        <select name="kd_buku" required class="form-control select2">
+                                            <option value="">Kode Buku</option>
+                                            <?php foreach ($kode_buku as $row) { ?>
+                                                <option value="<?= $row->kode_buku ?>"><?= $row->kode_buku ?></option>
+                                            <?php  } ?>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
@@ -119,7 +124,7 @@
                                         <label for="" class="pull-right">Penerbit</label>
                                     </div>
                                     <div class="col-md-9">
-                                        <select name="kd_penerbit" class="form-control select2">
+                                        <select name="kd_penerbit" required class="form-control select2">
                                             <option value="">Penerbit</option>
                                             <?php foreach ($penerbit as $row) { ?>
                                                 <option value="<?= $row->kd_penerbit ?>"><?= $row->nm_penerbit ?></option>
@@ -134,7 +139,7 @@
                                         <label for="" class="pull-right">Kategori</label>
                                     </div>
                                     <div class="col-md-9">
-                                        <select name="kd_kategori" class="form-control select2">
+                                        <select name="kd_kategori" required class="form-control select2">
                                             <option value="">Kategori</option>
                                             <?php foreach ($kategori as $row) { ?>
                                                 <option value="<?= $row->kd_kategori ?>"><?= $row->nm_kategori ?></option>

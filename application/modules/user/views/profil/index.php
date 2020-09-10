@@ -25,6 +25,14 @@ $this->load->view('user/headprofil');
                     <td>: <?= $profil->username ?></td>
                 </tr>
                 <tr>
+                    <td width="300px">Jurusan</td>
+                    <td>: <?= $profil->jurusan ?></td>
+                </tr>
+                <tr>
+                    <td width="300px">Kelas</td>
+                    <td>: <?= $profil->kelas ?></td>
+                </tr>
+                <tr>
                     <td width="300px">Jenis Kelamin</td>
                     <td>: <?= $profil->kelamin ?></td>
                 </tr>

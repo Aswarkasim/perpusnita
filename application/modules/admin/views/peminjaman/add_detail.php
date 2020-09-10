@@ -81,6 +81,17 @@
 
         <div class="row">
             <div class="col-md-12">
+                <?php if ($anggota->status_pinjam == 'Bebas') { ?>
+                    <a href="" target="blank" class="btn btn-success"><i class="fa fa-print"></i> Cetak Bebas Perpus</a>
+                <?php } else { ?>
+                    <p class="alert alert-warning"><i class="fa fa-warning"></i> Surat bebas perpustakaan belum bisa dicetak. Anda masih berada dalam status pinjam buku.</p>
+                <?php } ?>
+                <br>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-md-12">
                 <table class="table DataTable">
                     <thead>
                         <tr>

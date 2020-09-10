@@ -41,13 +41,44 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <b><label for="" class="pull-right">Jurusan</label></b>
+                        </div>
+                        <div class="col-md-7">
+                            <input type="text" placeholder="Jurusan" name="jurusan" class="form-control" value="<?= $profil->jurusan ?>">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <b><label for="" class="pull-right">Kelas</label></b>
+                        </div>
+                        <div class="col-md-7">
+                            <input type="text" placeholder="Kelas" name="kelas" class="form-control" value="<?= $profil->kelas ?>">
+                        </div>
+                    </div>
+                </div>
+
                 <div class="form-group">
                     <div class="row">
                         <div class="col-md-3">
                             <b><label class="pull-right">Jenis Kelamin</label></b>
                         </div>
                         <div class="col-md-7">
-                            <input type="text" class="form-control" name="kelamin" value="<?= $profil->kelamin ?>">
+                            <select name="kelamin" required class="form-control" id="">
+                                <option value="">-- Jenis Kelammin --</option>
+                                <option value="L" <?php if ($profil->kelamin == 'L') {
+                                                        echo "selected";
+                                                    } ?>>Laki-laki</option>
+                                <option value="P" <?php if ($profil->kelamin == 'P') {
+                                                        echo "selected";
+                                                    } ?>>Perempuan</option>
+                            </select>
                         </div>
                     </div>
                 </div>

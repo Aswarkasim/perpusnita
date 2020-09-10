@@ -56,7 +56,8 @@ class Anggota extends CI_Controller
     {
         $required = '%s tidak boleh kosong';
         $valid = $this->form_validation;
-        $valid->set_rules('kd_anggota', 'NIS', 'required|is_unique[tbl_anggota.kd_anggota]|max_length[6]', ['max_length' => 'NIS Maksimal 6 karakter', 'required' => $required, 'is_unique' => 'NIS Telah terdaftar']);
+        $valid->set_rules('kd_anggota', 'NIS', 'required|is_unique[tbl_anggota.kd_anggota]|max_length[7]', ['max_length' => 'NIS Maksimal 7 karakter', 'required' => $required, 'is_unique' => 'NIS Telah terdaftar']);
+        $valid->set_rules('nomor_anggota', 'Nomor Anggota', 'is_unique[tbl_anggota.nomor_anggota]|max_length[6]', ['max_length' => '%s Maksimal 6 karakter', 'is_unique' => '%s Telah terdaftar']);
         $valid->set_rules('nm_anggota', 'Nama Anggota', 'required', ['required' => $required]);
         $valid->set_rules('tempat_lahir', 'Tempat Lahir', 'required', ['required' => $required]);
         $valid->set_rules('tanggal_lahir', 'Tanggal Lahir', 'required', ['required' => $required]);
@@ -83,11 +84,14 @@ class Anggota extends CI_Controller
                     $i = $this->input;
                     $data = [
                         'kd_anggota'    => $i->post('kd_anggota'),
+                        'nomor_anggota'    => $i->post('nomor_anggota'),
                         'nm_anggota'    => $i->post('nm_anggota'),
                         'tempat_lahir'  => $i->post('tempat_lahir'),
                         'tanggal_lahir' => $i->post('tanggal_lahir'),
                         'agama'         => $i->post('agama'),
                         'alamat'         => $i->post('alamat'),
+                        'jurusan'         => $i->post('jurusan'),
+                        'kelas'         => $i->post('kelas'),
                         'kelamin'       => $i->post('kelamin'),
                         'no_telepon'    => $i->post('no_telepon'),
                         'foto'          => $upload_data['uploads']['file_name']
@@ -138,11 +142,14 @@ class Anggota extends CI_Controller
                     $i = $this->input;
                     $data = [
                         'kd_anggota'    => $kd_anggota,
+                        'nomor_anggota'    => $i->post('nomor_anggota'),
                         'nm_anggota'    => $i->post('nm_anggota'),
                         'tempat_lahir'  => $i->post('tempat_lahir'),
                         'tanggal_lahir' => $i->post('tanggal_lahir'),
                         'agama'         => $i->post('agama'),
                         'alamat'         => $i->post('alamat'),
+                        'jurusan'         => $i->post('jurusan'),
+                        'kelas'         => $i->post('kelas'),
                         'kelamin'       => $i->post('kelamin'),
                         'no_telepon'    => $i->post('no_telepon'),
                         'foto'          => $upload_data['uploads']['file_name']
@@ -155,11 +162,14 @@ class Anggota extends CI_Controller
                 $i = $this->input;
                 $data = [
                     'kd_anggota'    => $kd_anggota,
+                    'nomor_anggota'    => $i->post('nomor_anggota'),
                     'nm_anggota'    => $i->post('nm_anggota'),
                     'tempat_lahir'  => $i->post('tempat_lahir'),
                     'tanggal_lahir' => $i->post('tanggal_lahir'),
                     'agama'         => $i->post('agama'),
                     'alamat'         => $i->post('alamat'),
+                    'jurusan'         => $i->post('jurusan'),
+                    'kelas'         => $i->post('kelas'),
                     'kelamin'       => $i->post('kelamin'),
                     'no_telepon'    => $i->post('no_telepon')
                 ];
@@ -196,7 +206,7 @@ class Anggota extends CI_Controller
 
         $object->setActiveSheetIndex(0);
 
-        $table_columns = array("Date Created", "Kode Anggota", "Nama Anggota", "Jenis Kelamin", "Agama", "Tempat Lahir", "Tanggal Lahir", "Alamat", "No Telepon", "Status Pinjam");
+        $table_columns = array("Date Created", "NIS", "Nomor Anggota", "Nama Anggota", "Jurusan", "Kelas", "Jenis Kelamin", "Agama", "Tempat Lahir", "Tanggal Lahir", "Alamat", "No Telepon", "Status Pinjam");
 
         $column = 0;
 
@@ -217,14 +227,17 @@ class Anggota extends CI_Controller
 
             $object->getActiveSheet()->setCellValueByColumnAndRow(0, $excel_row, $row->date_created);
             $object->getActiveSheet()->setCellValueByColumnAndRow(1, $excel_row, $row->kd_anggota);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(2, $excel_row, $row->nm_anggota);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(3, $excel_row, $row->kelamin);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(4, $excel_row, $row->agama);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(5, $excel_row, $row->tempat_lahir);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(6, $excel_row, $row->tanggal_lahir);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(7, $excel_row, $row->alamat);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(8, $excel_row, $row->no_telepon);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(9, $excel_row, $row->status_pinjam);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(2, $excel_row, $row->nomor_anggota);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(3, $excel_row, $row->jurusan);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(4, $excel_row, $row->kelas);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(5, $excel_row, $row->nm_anggota);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(6, $excel_row, $row->kelamin);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(7, $excel_row, $row->agama);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(8, $excel_row, $row->tempat_lahir);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(9, $excel_row, $row->tanggal_lahir);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(10, $excel_row, $row->alamat);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(11, $excel_row, $row->no_telepon);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(12, $excel_row, $row->status_pinjam);
 
             $excel_row++;
         }

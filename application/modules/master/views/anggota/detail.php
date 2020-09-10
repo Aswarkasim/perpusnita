@@ -23,10 +23,41 @@
                 <div class="form-group">
                     <div class="row">
                         <div class="col-md-3">
+                            <label for="" class="pull-right">Nomor Anggota</label>
+                        </div>
+                        <div class="col-md-9">
+                            <?= $anggota->nomor_anggota ?>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-3">
                             <label for="" class="pull-right">Nama</label>
                         </div>
                         <div class="col-md-9">
                             <?= $anggota->nm_anggota ?>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <label for="" class="pull-right">Jurusan</label>
+                        </div>
+                        <div class="col-md-9">
+                            <?= $anggota->jurusan ?>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <label for="" class="pull-right">Kelas</label>
+                        </div>
+                        <div class="col-md-9">
+                            <?= $anggota->kelas ?>
                         </div>
                     </div>
                 </div>

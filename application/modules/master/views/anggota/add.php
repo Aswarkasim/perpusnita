@@ -30,6 +30,17 @@
                     <div class="form-group">
                         <div class="row">
                             <div class="col-md-3">
+                                <b><label class="pull-right">Nomor Anggota</label></b>
+                            </div>
+                            <div class="col-md-9">
+                                <input type="text" class="form-control" placeholder="Nomor Anggota" name="nomor_anggota">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-3">
                                 <label for="" class="pull-right">Nama</label>
                             </div>
                             <div class="col-md-9">
@@ -37,6 +48,29 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <label for="" class="pull-right">Jurusan</label>
+                            </div>
+                            <div class="col-md-9">
+                                <input type="text" placeholder="Jurusan" name="jurusan" class="form-control" value="<?= set_value('jurusan') ?>">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <label for="" class="pull-right">Kelas</label>
+                            </div>
+                            <div class="col-md-9">
+                                <input type="text" placeholder="Kelas" name="kelas" class="form-control" value="<?= set_value('kelas') ?>">
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="form-group">
                         <div class="row">
                             <div class="col-md-3">

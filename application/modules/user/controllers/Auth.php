@@ -81,8 +81,10 @@ class Auth extends CI_Controller
         $is_username = '%s ' . post('username') . ' telah ada, silakan masukkan username yang lain';
         $is_email = '%s ' . post('email') . ' telah ada, silakan masukkan %s yang lain';
         $valid = $this->form_validation;
-        $valid->set_rules('kd_anggota', 'NIS', 'required|is_unique[tbl_anggota.kd_anggota]|max_length[6]', ['max_length' => 'NIS Maksimal 6 karakter', 'required' => $required, 'is_unique' => 'NIS Telah terdaftar']);
+        $valid->set_rules('kd_anggota', 'NIS', 'required|is_unique[tbl_anggota.kd_anggota]|max_length[7]', ['max_length' => 'NIS Maksimal 7 karakter', 'required' => $required, 'is_unique' => 'NIS Telah terdaftar']);
         $valid->set_rules('nm_anggota', 'Nama Lengkap', 'required', array('required' => $required));
+        $valid->set_rules('jurusan', 'Jurusan', 'required', array('required' => $required));
+        $valid->set_rules('kelas', 'Kelas', 'required', array('required' => $required));
         $valid->set_rules('tanggal_lahir', 'Tanggal lahir', 'required', array('required' => $required));
         $valid->set_rules('username', 'Username', 'required|is_unique[tbl_anggota.username]', array('required' => $required, 'is_unique' => $is_username));
         $valid->set_rules('password', 'Password', 'required|min_length[6]|max_length[10]', array('required' => $required, 'is_unique' => $is_email, 'min_length' => '% minimal 6 karakter', 'max_length' => '%s maksimal 8 karakter'));
@@ -102,8 +104,12 @@ class Auth extends CI_Controller
                 'agama'             => $i->post('agama'),
                 'kelamin'           => $i->post('kelamin'),
                 'tempat_lahir'      => $i->post('tempat_lahir'),
+                'jurusan'      => $i->post('jurusan'),
+                'kelas'      => $i->post('tempat_lahir'),
                 'tanggal_lahir'     => $i->post('tanggal_lahir'),
                 'alamat'            => $i->post('alamat'),
+                'jurusan'         => $i->post('jurusan'),
+                'kelas'         => $i->post('kelas'),
                 'no_telepon'        => $i->post('no_telepon'),
                 'password'          => sha1($i->post('password')),
                 'is_active'         =>  0,
