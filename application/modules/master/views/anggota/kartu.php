@@ -55,8 +55,8 @@
         <table>
 
           <tr>
-            <td>No. Anggota/ NIS</td>
-            <td>: <?= $anggota->kd_anggota; ?></td>
+            <td>No. Anggota</td>
+            <td>: <?= $anggota->nomor_anggota; ?></td>
           </tr>
 
           <tr>
