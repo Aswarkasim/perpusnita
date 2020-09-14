@@ -13,13 +13,13 @@
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">Tambah Kategori</h4>
+                <h4 class="modal-title">Tambah Penerbi</h4>
             </div>
             <div class="modal-body">
                 <div class="form-group">
                     <div class="row">
                         <div class="col-md-3">
-                            <label for="" class="pull-right">Kode Kategori</label>
+                            <label for="" class="pull-right">Kode Penerbi</label>
                         </div>
                         <div class="col-md-9">
                             <input type="text" class="form-control" name="kd_penerbit" required value="<?= 'PN' . random_string('numeric', '4') ?>">
@@ -29,7 +29,7 @@
                 <div class="form-group">
                     <div class="row">
                         <div class="col-md-3">
-                            <label for="" class="pull-right">Nama Kategori</label>
+                            <label for="" class="pull-right">Nama Penerbi</label>
                         </div>
                         <div class="col-md-9">
                             <input type="text" class="form-control" name="nm_penerbit" required>

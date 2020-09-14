@@ -35,11 +35,9 @@ class Buku extends CI_Controller
     public function detail($kd_buku)
     {
 
-        $kode_buku = $this->Crud_model->listing('tbl_kode_buku');
         $buku = $this->Buku_model->listingBuku($kd_buku)->row();
         $data = [
             'buku' => $buku,
-            'kode_buku' => $kode_buku,
             'content' => 'master/buku/detail'
         ];
         $this->load->view('admin/layout/wrapper', $data, FALSE);
@@ -49,7 +47,7 @@ class Buku extends CI_Controller
     {
         $penerbit = $this->Crud_model->listing('tbl_penerbit');
         $kategori = $this->Crud_model->listing('tbl_kategori');
-        $kode_buku = $this->Crud_model->listing('tbl_kode_buku');
+        $jenis = $this->Crud_model->listing('tbl_jenis');
 
 
 
@@ -70,8 +68,8 @@ class Buku extends CI_Controller
                 if (!$this->upload->do_upload('cover')) {
                     $data = [
                         'penerbit' => $penerbit,
-                        'kode_buku' => $kode_buku,
                         'kategori' => $kategori,
+                        'jenis' => $jenis,
                         'error'     => $this->upload->display_errors(),
                         'content'   => 'master/buku/add'
                     ];
@@ -85,6 +83,7 @@ class Buku extends CI_Controller
                         'judul_buku'    => $i->post('judul_buku'),
                         'isbn'    => $i->post('isbn'),
                         'penulis'    => $i->post('penulis'),
+                        'kd_jenis'      => $i->post('kd_jenis'),
                         'tahun_terbit'    => $i->post('tahun_terbit'),
                         'jumlah_halaman'    => $i->post('jumlah_halaman'),
                         'bahasa'    => $i->post('bahasa'),
@@ -103,7 +102,7 @@ class Buku extends CI_Controller
         $data = [
             'penerbit' => $penerbit,
             'kategori' => $kategori,
-            'kode_buku' => $kode_buku,
+            'jenis' => $jenis,
             'content'   => 'master/buku/add'
         ];
         $this->load->view('admin/layout/wrapper', $data, FALSE);
@@ -113,7 +112,7 @@ class Buku extends CI_Controller
         $buku = $this->Crud_model->listingOne('tbl_buku', 'kd_buku', $kd_buku);
         $penerbit = $this->Crud_model->listing('tbl_penerbit');
         $kategori = $this->Crud_model->listing('tbl_kategori');
-        $kode_buku = $this->Crud_model->listing('tbl_kode_buku');
+        $jenis = $this->Crud_model->listing('tbl_jenis');
 
         $required = '%s tidak boleh kosong';
         $valid = $this->form_validation;
@@ -132,8 +131,8 @@ class Buku extends CI_Controller
                 if (!$this->upload->do_upload('cover')) {
                     $data = [
                         'penerbit' => $penerbit,
-                        'kode_buku' => $kode_buku,
                         'kategori' => $kategori,
+                        'jenis' => $jenis,
                         'buku' => $buku,
                         'error'     => $this->upload->display_errors(),
                         'content'   => 'master/buku/edit'
@@ -151,6 +150,7 @@ class Buku extends CI_Controller
                         'judul_buku'    => $i->post('judul_buku'),
                         'isbn'    => $i->post('isbn'),
                         'penulis'    => $i->post('penulis'),
+                        'kd_jenis'      => $i->post('kd_jenis'),
                         'tahun_terbit'    => $i->post('tahun_terbit'),
                         'jumlah_halaman'    => $i->post('jumlah_halaman'),
                         'bahasa'    => $i->post('bahasa'),
@@ -162,7 +162,7 @@ class Buku extends CI_Controller
                     ];
                     $this->Crud_model->edit('tbl_buku', 'kd_buku', $kd_buku, $data);
                     $this->session->set_flashdata('msg', 'Buku ditambahkan');
-                    redirect('master/buku');
+                    redirect('master/buku/edit/' . $kd_buku);
                 }
             } else {
                 $i = $this->input;
@@ -171,6 +171,7 @@ class Buku extends CI_Controller
                     'judul_buku'    => $i->post('judul_buku'),
                     'isbn'    => $i->post('isbn'),
                     'penulis'    => $i->post('penulis'),
+                    'kd_jenis'      => $i->post('kd_jenis'),
                     'tahun_terbit'    => $i->post('tahun_terbit'),
                     'jumlah_halaman'    => $i->post('jumlah_halaman'),
                     'bahasa'    => $i->post('bahasa'),
@@ -181,13 +182,13 @@ class Buku extends CI_Controller
                 ];
                 $this->Crud_model->edit('tbl_buku', 'kd_buku', $kd_buku, $data);
                 $this->session->set_flashdata('msg', 'Buku ditambahkan');
-                redirect('master/buku');
+                redirect('master/buku/edit/' . $kd_buku);
             }
         }
         $data = [
             'penerbit' => $penerbit,
             'buku' => $buku,
-            'kode_buku' => $kode_buku,
+            'jenis' => $jenis,
             'kategori' => $kategori,
             'content'   => 'master/buku/edit'
         ];

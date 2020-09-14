@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Cetak Penerbit</title>
+  <title>Cetak Jenis</title>
   <link href="<?= base_url('assets/home/') ?>vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
   <style type="text/css">
     /* body {
@@ -45,7 +45,7 @@
 <body>
   <div class="container-fluid">
     <div class="text-center">
-      <h3>DATA PENERBIT</h3>
+      <h3>DATA KATEGORI</h3>
       <h3><?= $konfigurasi->nama_aplikasi; ?></h3>
     </div>
 
@@ -54,17 +54,17 @@
       <thead>
         <tr>
           <th width="40px">No</th>
-          <th>Kode Penerbit</th>
+          <th>Kode Kategori</th>
           <th>Nama</th>
         </tr>
       </thead>
       <tbody id="targetData">
         <?php $no = 1;
-        foreach ($penerbit as $row) { ?>
+        foreach ($jenis as $row) { ?>
           <tr>
             <td><?= $no ?></td>
-            <td><?= $row->kd_penerbit ?></td>
-            <td><?= $row->nm_penerbit ?></td>
+            <td><?= $row->kd_jenis ?></td>
+            <td><?= $row->nm_jenis ?></td>
           </tr>
         <?php $no++;
         } ?>

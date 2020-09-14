@@ -24,14 +24,7 @@
                                         <label for="" class="pull-right">Kode Buku</label>
                                     </div>
                                     <div class="col-md-9">
-                                        <select name="kd_buku" required class="form-control select2">
-                                            <option value="">Kode Buku</option>
-                                            <?php foreach ($kode_buku as $row) { ?>
-                                                <option value="<?= $row->kode_buku ?>" <?php if (($row->kode_buku) == $buku->kd_buku) {
-                                                                                            echo 'selected';
-                                                                                        } ?>><?= $row->kode_buku ?></option>
-                                            <?php  } ?>
-                                        </select>
+                                        <input type="text" class="form-control" name="kd_buku" placeholder="Kode Buku" value="<?= $buku->kd_buku ?>">
                                     </div>
                                 </div>
                             </div>
@@ -138,6 +131,23 @@
                                                 <option value="<?= $row->kd_penerbit ?>" <?php if (($row->kd_penerbit) == $buku->kd_penerbit) {
                                                                                                 echo 'selected';
                                                                                             } ?>><?= $row->nm_penerbit ?></option>
+                                            <?php  } ?>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <label for="" class="pull-right">Jenis</label>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <select name="kd_jenis" required class="form-control select2">
+                                            <option value="">Jenis</option>
+                                            <?php foreach ($jenis as $row) { ?>
+                                                <option value="<?= $row->kd_jenis ?>" <?php if (($row->kd_jenis) == $buku->kd_jenis) {
+                                                                                            echo 'selected';
+                                                                                        } ?>><?= $row->nm_jenis ?></option>
                                             <?php  } ?>
                                         </select>
                                     </div>

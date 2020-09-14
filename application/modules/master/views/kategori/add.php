@@ -19,7 +19,7 @@
                             <label for="" class="pull-right">Kode Kategori</label>
                         </div>
                         <div class="col-md-9">
-                            <input type="text" class="form-control" name="kd_kategori" required value="<?= 'KT' . random_string('numeric', '4') ?>">
+                            <input type="text" class="form-control" name="kd_kategori" required>
                         </div>
                     </div>
                 </div>

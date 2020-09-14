@@ -1,30 +1,30 @@
-<div class="modal fade" id="ModalEdit<?= $row->kd_penerbit ?>">
+<div class="modal fade" id="ModalEdit<?= $row->kd_jenis ?>">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">Tambah Penerbit</h4>
+                <h4 class="modal-title">Tambah Jenis</h4>
             </div>
-            <?= form_open(base_url($tombol['edit'] . '/' . $row->kd_penerbit)) ?>
+            <?= form_open(base_url($tombol['edit'] . '/' . $row->kd_jenis)) ?>
             <div class="modal-body">
                 <div class="form-group">
                     <div class="row">
                         <div class="col-md-3">
-                            <label for="" class="pull-right">Kode Penerbit</label>
+                            <label for="" class="pull-right">Kode Jenis</label>
                         </div>
                         <div class="col-md-9">
-                            <input type="text" class="form-control" name="kd_penerbit" required value="<?= $row->kd_penerbit ?>">
+                            <input type="text" class="form-control" name="kd_jenis" required value="<?= $row->kd_jenis ?>">
                         </div>
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="row">
                         <div class="col-md-3">
-                            <label for="" class="pull-right">Nama Penerbit</label>
+                            <label for="" class="pull-right">Nama Jenis</label>
                         </div>
                         <div class="col-md-9">
-                            <input type="text" class="form-control" name="nm_penerbit" required value="<?= $row->nm_penerbit ?>">
+                            <input type="text" class="form-control" name="nm_jenis" required value="<?= $row->nm_jenis ?>">
                         </div>
                     </div>
                 </div>

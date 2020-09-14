@@ -1,30 +1,35 @@
-<div class="modal fade" id="ModalEdit<?= $row->kd_penerbit ?>">
+<button type="button" class="btn btn-warning btn-sx" data-toggle="modal" data-target="#modal-default">
+    <i class="fa fa-plus"></i>Tambah
+</button>
+<a href="<?= base_url('master/jenis/exportExcel') ?>" class="btn btn-sm btn-success"><i class="fa fa-file-excel-o"></i> Export Excel</a>
+<a href="<?= base_url('master/jenis/cetak') ?>" class="btn btn-sm btn-primary" target="_blank"><i class="fa fa-print"></i> Cetak</a>
+<?= form_open(base_url($tombol['add'])) ?>
+<div class="modal fade" id="modal-default">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">Tambah Penerbit</h4>
+                <h4 class="modal-title">Tambah Kategori</h4>
             </div>
-            <?= form_open(base_url($tombol['edit'] . '/' . $row->kd_penerbit)) ?>
             <div class="modal-body">
                 <div class="form-group">
                     <div class="row">
                         <div class="col-md-3">
-                            <label for="" class="pull-right">Kode Penerbit</label>
+                            <label for="" class="pull-right">Kode Kategori</label>
                         </div>
                         <div class="col-md-9">
-                            <input type="text" class="form-control" name="kd_penerbit" required value="<?= $row->kd_penerbit ?>">
+                            <input type="text" class="form-control" name="kd_jenis" required>
                         </div>
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="row">
                         <div class="col-md-3">
-                            <label for="" class="pull-right">Nama Penerbit</label>
+                            <label for="" class="pull-right">Nama Kategori</label>
                         </div>
                         <div class="col-md-9">
-                            <input type="text" class="form-control" name="nm_penerbit" required value="<?= $row->nm_penerbit ?>">
+                            <input type="text" class="form-control" name="nm_jenis" required>
                         </div>
                     </div>
                 </div>
@@ -34,9 +39,9 @@
                 <button type="submit" class="btn btn-primary">Simpan</button>
             </div>
         </div>
-        <?= form_close() ?>
         <!-- /.modal-content -->
     </div>
     <!-- /.modal-dialog -->
 </div>
+<?= form_close() ?>
 <!-- /.modal -->

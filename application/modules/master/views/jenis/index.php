@@ -6,7 +6,7 @@
 
         <div class="box">
             <div class="box-header">
-                <h3 class="box-title">Manajemen Penerbit</h3>
+                <h3 class="box-title">Manajemen Jenis</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -20,25 +20,25 @@
                     <thead>
                         <tr>
                             <th width="40px">No</th>
-                            <th>Kode Penerbit</th>
+                            <th>Kode Jenis</th>
                             <th>Nama</th>
                             <th width="100px">Aksi</th>
                         </tr>
                     </thead>
                     <tbody id="targetData">
                         <?php $no = 1;
-                        foreach ($penerbit as $row) { ?>
+                        foreach ($jenis as $row) { ?>
                             <tr>
                                 <td><?= $no ?></td>
-                                <td><?= $row->kd_penerbit ?></td>
-                                <td><?= $row->nm_penerbit ?></td>
+                                <td><?= $row->kd_jenis ?></td>
+                                <td><?= $row->nm_jenis ?></td>
                                 <td>
-                                    <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#ModalEdit<?= $row->kd_penerbit ?>">
+                                    <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#ModalEdit<?= $row->kd_jenis ?>">
                                         <i class="fa fa-edit"></i>Edit
                                     </button>
 
                                     <!-- <a href="<?= base_url($tombol['edit']) ?>" class="btn btn-success btn-xs"><i class="fa fa-edit"></i> Edit</a> -->
-                                    <a href="<?= base_url($tombol['delete'] . $row->kd_penerbit) ?>" class="btn btn-danger btn-xs tombol-hapus"><i class="fa fa-trash"></i> Hapus</a>
+                                    <a href="<?= base_url($tombol['delete'] . $row->kd_jenis) ?>" class="btn btn-danger btn-xs tombol-hapus"><i class="fa fa-trash"></i> Hapus</a>
                                 </td>
                                 <?php include('edit.php')
                                 ?>

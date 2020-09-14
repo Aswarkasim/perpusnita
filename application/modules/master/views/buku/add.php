@@ -24,12 +24,7 @@
                                         <label for="" class="pull-right">Kode Buku</label>
                                     </div>
                                     <div class="col-md-9">
-                                        <select name="kd_buku" required class="form-control select2">
-                                            <option value="">Kode Buku</option>
-                                            <?php foreach ($kode_buku as $row) { ?>
-                                                <option value="<?= $row->kode_buku ?>"><?= $row->kode_buku ?></option>
-                                            <?php  } ?>
-                                        </select>
+                                        <input type="text" class="form-control" name="kd_buku" placeholder="Kode Buku" value="<?php echo random_string('numeric', '12') ?>">
                                     </div>
                                 </div>
                             </div>
@@ -118,6 +113,8 @@
                         <div class="col-md-7">
 
 
+
+
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-md-3">
@@ -133,6 +130,23 @@
                                     </div>
                                 </div>
                             </div>
+
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <label for="" class="pull-right">Jenis</label>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <select name="kd_jenis" required class="form-control select2">
+                                            <option value="">Jenis</option>
+                                            <?php foreach ($jenis as $row) { ?>
+                                                <option value="<?= $row->kd_jenis ?>"><?= $row->nm_jenis ?></option>
+                                            <?php  } ?>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-md-3">
