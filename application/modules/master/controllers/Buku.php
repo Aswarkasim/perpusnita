@@ -36,7 +36,7 @@ class Buku extends CI_Controller
     }
 
 
-    public function list($kd_kategori)
+    public function listBuku($kd_kategori)
     {
         $tombol  = [
             'add'     => 'master/buku/add',
