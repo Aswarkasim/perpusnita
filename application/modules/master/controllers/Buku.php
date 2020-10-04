@@ -10,7 +10,7 @@ class Buku extends CI_Controller
     {
         parent::__construct();
         is_logged_in_admin();
-        $this->load->model('master/Buku_model');
+        $this->load->model('master/Buku_model', 'BM');
     }
 
 
@@ -24,18 +24,68 @@ class Buku extends CI_Controller
 
 
         $buku = $this->Crud_model->listing('tbl_buku', 'date_created', 'DESC');
-        $data = [
 
+        $kategori = $this->BM->listParentKategori();
+        $data = [
             'buku' => $buku,
+            'kategori' => $kategori,
             'tombol'   => $tombol,
             'content' => 'master/buku/index'
         ];
         $this->load->view('admin/layout/wrapper', $data, FALSE);
     }
+
+
+    public function list($kd_kategori)
+    {
+        $tombol  = [
+            'add'     => 'master/buku/add',
+            'edit'    => 'master/buku/edit/',
+            'delete'  => 'master/buku/delete/'
+        ];
+
+        $katDetail = $this->Crud_model->listingOne('tbl_kategori', 'kd_kategori', $kd_kategori);
+
+        $buku = $this->Crud_model->listingOneAll('tbl_buku', 'kd_kategori', $kd_kategori);
+
+        $kategori = $this->BM->listParentKategori();
+        $data = [
+            'buku' => $buku,
+            'kategori' => $kategori,
+            'tombol'   => $tombol,
+            'katDetail'   => $katDetail,
+            'content' => 'master/buku/list'
+        ];
+        $this->load->view('admin/layout/wrapper', $data, FALSE);
+    }
+
+    function listChild($kd_kategori)
+    {
+        $tombol  = [
+            'add'     => 'master/buku/add',
+            'edit'    => 'master/buku/edit/',
+            'delete'  => 'master/buku/delete/'
+        ];
+
+        $katDetail = $this->Crud_model->listingOne('tbl_kategori', 'kd_kategori', $kd_kategori);
+
+        // $buku = $this->Crud_model->listingOneAll('tbl_buku', 'kd_kategori', $kd_kategori);
+
+        $kategori = $this->BM->listChildKategori($kd_kategori);
+        $data = [
+            'kategori' => $kategori,
+            'tombol'   => $tombol,
+            'katDetail'   => $katDetail,
+            'content' => 'master/buku/listChild'
+        ];
+        $this->load->view('admin/layout/wrapper', $data, FALSE);
+    }
+
+
     public function detail($kd_buku)
     {
 
-        $buku = $this->Buku_model->listingBuku($kd_buku)->row();
+        $buku = $this->BM->listingBuku($kd_buku)->row();
         $data = [
             'buku' => $buku,
             'content' => 'master/buku/detail'
@@ -228,7 +278,7 @@ class Buku extends CI_Controller
         }
 
 
-        $data = $this->Buku_model->listingBukuIndex();
+        $data = $this->BM->listingBukuIndex();
 
 
         $excel_row = 2;

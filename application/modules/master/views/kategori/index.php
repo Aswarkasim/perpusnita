@@ -27,18 +27,28 @@
                     </thead>
                     <tbody id="targetData">
                         <?php $no = 1;
-                        foreach ($kategori as $row) { ?>
+                        foreach ($is_parent as $row) { ?>
                             <tr>
                                 <td><?= $no ?></td>
-                                <td><?= $row->kd_kategori ?></td>
-                                <td><?= $row->nm_kategori ?></td>
+                                <td>
+                                    <strong><?= $row->kd_kategori ?></strong><br>
+                                </td>
+                                <td>
+                                    <strong><?= $row->nm_kategori ?></strong><br>
+                                    <?php
+                                    $kategori = $this->BM->listChildKategori($row->kd_kategori);
+                                    foreach ($kategori as $d) {
+                                    ?>
+                                        <span><?= $d->kd_kategori . ' - ' . $d->nm_kategori; ?></span> <br>
+                                    <?php } ?>
+                                </td>
                                 <td>
                                     <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#ModalEdit<?= $row->kd_kategori ?>">
                                         <i class="fa fa-edit"></i>Edit
                                     </button>
 
                                     <!-- <a href="<?= base_url($tombol['edit']) ?>" class="btn btn-success btn-xs"><i class="fa fa-edit"></i> Edit</a> -->
-                                    <a href="<?= base_url($tombol['delete'] . $row->kd_kategori) ?>" class="btn btn-danger btn-xs tombol-hapus"><i class="fa fa-trash"></i> Hapus</a>
+                                    <a href="<?= base_url($tombol['delete'] . $row->kd_kategori) ?>" class="btn btn-danger btn-xs tombol-hapus-kategori"><i class="fa fa-trash"></i> Hapus</a>
                                 </td>
                                 <?php include('edit.php')
                                 ?>

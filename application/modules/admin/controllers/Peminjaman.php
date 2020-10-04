@@ -16,8 +16,6 @@ class Peminjaman extends CI_Controller
 
     public function index()
     {
-
-
         $peminjaman = $this->AM->listPeminjaman();
         $data = [
             'add'      => 'admin/peminjaman/add',
@@ -26,6 +24,21 @@ class Peminjaman extends CI_Controller
             'pinjam'      => 'admin/peminjaman/cek_kd/',
             'peminjaman'      => $peminjaman,
             'content'   => 'admin/peminjaman/index'
+        ];
+
+        $this->load->view('admin/layout/wrapper', $data, FALSE);
+    }
+
+    public function hilang()
+    {
+        $peminjaman = $this->AM->listHilang();
+        $data = [
+            'add'      => 'admin/peminjaman/add',
+            'edit'      => 'admin/peminjaman/edit/',
+            'delete'      => 'admin/peminjaman/delete/',
+            'pinjam'      => 'admin/peminjaman/cek_kd/',
+            'peminjaman'      => $peminjaman,
+            'content'   => 'admin/peminjaman/hilang'
         ];
 
         $this->load->view('admin/layout/wrapper', $data, FALSE);

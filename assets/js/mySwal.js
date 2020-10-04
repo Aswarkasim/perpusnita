@@ -39,6 +39,27 @@ $('.tombol-hapus').on('click', function (e) {
 	})
 })
 
+// Tommbol hapus
+$('.tombol-hapus-kategori').on('click', function (e) {
+	// Mematikan href
+	e.preventDefault();
+	const href = $(this).attr('href');
+
+	Swal({
+		title: 'Semua anak kategori akan dihapus?',
+		text: "data akan dihapus",
+		type: 'warning',
+		showCancelButton: true,
+		confirmButtonColor: '#3085d6',
+		cancelButtonColor: '#d33',
+		confirmButtonText: 'Hapus Data!'
+	}).then((result) => {
+		if (result.value) {
+			document.location.href = href;
+		}
+	})
+})
+
 
 // Tommbol hapus
 $('.go-home').on('click', function (e) {

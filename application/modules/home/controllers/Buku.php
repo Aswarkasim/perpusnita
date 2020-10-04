@@ -12,25 +12,61 @@ class Buku extends CI_Controller
         $this->load->model('Home_model', 'HM');
     }
 
-
     public function index()
     {
         $this->load->library('pagination');
 
         $config['base_url']     = base_url('home/buku/index/');
-        $config['total_rows']   = count($this->Crud_model->listing('tbl_buku'));
+        $config['total_rows']   = count($this->Crud_model->listingOneAll('tbl_kategori', 'is_parent', ''));
         $config['per_page']     = 12;
 
         $from = $this->uri->segment(4);
         $this->pagination->initialize($config);
-        $buku = $this->HM->listBuku('tbl_buku', $config['per_page'], $from);
+        $kategori = $this->HM->listParentKategori($config['per_page'], $from);
+        // $kategori = $this->Crud_model->listingOneAll('tbl_kategori', 'is_parent', '');
+
 
         $data = [
-            'buku'    => $buku,
+            'kategori'    => $kategori,
             'pagination'    => $this->pagination->create_links(),
             'content' => 'home/buku/index'
         ];
-        $this->load->view('layout/wrapper', $data);
+        $this->load->view('layout/wrapper', $data, FALSE);
+    }
+
+    public function listChild($kd_kategori)
+    {
+        $kategori = $this->Crud_model->listingOneAll('tbl_kategori', 'is_parent', $kd_kategori);
+        $kat_parent = $this->Crud_model->listingOne('tbl_kategori', 'kd_kategori', $kd_kategori);
+        $data = [
+            'kategori'  => $kategori,
+            'kat_parent'  => $kat_parent,
+            'content'  => 'home/buku/listChild'
+        ];
+        $this->load->view('/layout/wrapper', $data, FALSE);
+    }
+
+
+    public function listBuku($kd_kategori)
+    {
+        $this->load->library('pagination');
+
+        $config['base_url']     = base_url('home/buku/listBuku/' . $kd_kategori);
+        $config['total_rows']   = count($this->Crud_model->listingOneAll('tbl_buku', 'kd_kategori', $kd_kategori));
+        $config['per_page']     = 12;
+
+        $from = $this->uri->segment(5);
+        $this->pagination->initialize($config);
+        $buku = $this->HM->listBuku('tbl_buku', $kd_kategori, $config['per_page'], $from);
+
+        $kat_parent = $this->Crud_model->listingOne('tbl_kategori', 'kd_kategori', $kd_kategori);
+
+        $data = [
+            'buku'    => $buku,
+            'kat_parent'  => $kat_parent,
+            'pagination'    => $this->pagination->create_links(),
+            'content' => 'home/buku/listBuku'
+        ];
         $this->load->view('layout/wrapper', $data, FALSE);
     }
 

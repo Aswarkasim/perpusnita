@@ -59,6 +59,9 @@ $role = $this->session->userdata('role');
                     <li class="<?php if ($this->uri->segment(3) == "index") {
                                     echo "active";
                                 } ?>"><a href="<?= base_url('admin/peminjaman/index') ?>">Data Peminjaman</a></li>
+                    <li class="<?php if ($this->uri->segment(3) == "hilang") {
+                                    echo "active";
+                                } ?>"><a href="<?= base_url('admin/peminjaman/hilang') ?>">Buku Hilang</a></li>
                     <li class="<?php if ($this->uri->segment(3) == "laporan") {
                                     echo "active";
                                 } ?>"><a href="<?= base_url('admin/peminjaman/laporan') ?>">Laporan</a></li>

@@ -1,6 +1,6 @@
 <div class="container mt-5">
     <div class="">
-        <h4><strong> Daftar Buku</strong></h4>
+        <h4><strong> Daftar Buku <?= $kat_parent->nm_kategori; ?></strong></h4>
     </div><br>
     <form action="<?= base_url('home/buku/cari'); ?>">
         <div class="row">
@@ -26,7 +26,7 @@
                 <div class="card">
                     <div class="card-body">
                         <h4 class="card-title"><strong> <?= $row->nm_kategori ?></strong></h4>
-                        <a href="<?= base_url('home/buku/listChild/' . $row->kd_kategori) ?>" class="btn btn-primary">Buka</a>
+                        <a href="<?= base_url('home/buku/listBuku/' . $row->kd_kategori) ?>" class="btn btn-primary">Buka</a>
                     </div>
                 </div>
             </div>
@@ -36,7 +36,6 @@
 
     <div class="row pt-5">
         <div class="col-lg-12">
-            <?= $pagination ?>
         </div>
     </div>
 </div>

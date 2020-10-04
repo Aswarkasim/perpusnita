@@ -10,6 +10,9 @@ class Kategori extends CI_Controller
     {
         parent::__construct();
         is_logged_in_admin();
+
+
+        $this->load->model('master/Buku_model', 'BM');
     }
 
 
@@ -21,10 +24,11 @@ class Kategori extends CI_Controller
             'delete'  => 'master/kategori/delete/'
         ];
 
-        $kategori = $this->Crud_model->listing('tbl_kategori');
+
+        $is_parent = $this->BM->listParentKategori();
         $data = [
 
-            'kategori' => $kategori,
+            'is_parent' => $is_parent,
             'tombol'   => $tombol,
             'content' => 'master/kategori/index'
         ];
@@ -38,13 +42,15 @@ class Kategori extends CI_Controller
         $valid->set_rules('nm_kategori', 'Nama Kaategori', 'macthes[tbl_kategori.nm_kategori]', array('matches' => '%s telah ada. Silahkan masukkan kode yang lain'));
 
 
+
         if ($valid->run() === TRUE) {
             $this->index();
         } else {
             $i = $this->input;
             $data = [
                 'nm_kategori'   => $i->post('nm_kategori'),
-                'kd_kategori'   => $i->post('kd_kategori')
+                'kd_kategori'   => $i->post('kd_kategori'),
+                'is_parent'   => $i->post('is_parent')
             ];
             $this->Crud_model->add('tbl_kategori', $data);
             $this->session->set_flashdata('msg', 'kategori berhasil ditambah');
@@ -64,7 +70,8 @@ class Kategori extends CI_Controller
             $i = $this->input;
             $data = [
                 'nm_kategori'   => $i->post('nm_kategori'),
-                'kd_kategori'   => $i->post('kd_kategori')
+                'kd_kategori'   => $i->post('kd_kategori'),
+                'is_parent'   => $i->post('is_parent')
             ];
             $this->Crud_model->edit('tbl_kategori', 'kd_kategori', $kd_kategori, $data);
             $this->session->set_flashdata('msg', 'kategori berhasil diedit');
@@ -74,8 +81,13 @@ class Kategori extends CI_Controller
 
     function delete($kd_kategori)
     {
-        $this->Crud_model->delete('tbl_kategori', 'kd_kategori', $kd_kategori);
-        $this->session->set_flashdata('msg', 'data telah dihapus');
+        $kat = $this->Crud_model->listingOne('tbl_kategori', 'kd_kategori', $kd_kategori);
+        if ($kat->is_parent == '') {
+            $this->Crud_model->delete('tbl_kategori', 'is_parent', $kd_kategori);
+        } else {
+            $this->Crud_model->delete('tbl_kategori', 'kd_kategori', $kd_kategori);
+            $this->session->set_flashdata('msg', 'data telah dihapus');
+        }
         redirect('master/kategori');
     }
 

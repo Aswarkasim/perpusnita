@@ -33,6 +33,23 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <label for="" class="pull-right">Kategori Induk</label>
+                        </div>
+                        <div class="col-md-9">
+                            <select name="is_parent" class="form-control select2" id="">
+                                <option value="">-- Kategoti Induk --</option>
+                                <?php foreach ($is_parent as $row) { ?>
+                                    <option value="<?= $row->kd_kategori; ?>"><?= $row->nm_kategori; ?></option>
+                                <?php } ?>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
@@ -45,3 +62,12 @@
 </div>
 <?= form_close() ?>
 <!-- /.modal -->
+
+
+<script src="<?= base_url('assets/admin/') ?>bower_components/select2/dist/js/select2.full.min.js"></script>
+<script>
+    $(function() {
+        $('.select2').select2();
+
+    })
+</script>

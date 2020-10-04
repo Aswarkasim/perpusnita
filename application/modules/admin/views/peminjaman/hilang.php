@@ -1,13 +1,14 @@
 <div class="flash-data" data-flashdata="<?= $this->session->flashdata('msg') ?>"></div>
 <div class="box">
     <div class="box-header">
-        <h3 class="box-title">Manajemen Peminjaman</h3>
+        <h3 class="box-title">Manajemen Buku Hilang</h3>
     </div>
     <!-- /.box-header -->
     <div class="box-body">
 
         <p>
-            <?php include('add.php') ?>
+            <?php //include('add.php') 
+            ?>
         </p>
 
         <table class="table DataTable">

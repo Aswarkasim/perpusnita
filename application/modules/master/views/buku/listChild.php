@@ -1,7 +1,7 @@
 <div class="flash-data" data-flashdata="<?= $this->session->flashdata('msg') ?>"></div>
 <div class="box">
     <div class="box-header">
-        <h3 class="box-title">Manajemen Data Buku</h3>
+        <h3 class="box-title">Manajemen Data Buku <?= $katDetail->nm_kategori; ?></h3>
     </div>
     <!-- /.box-header -->
     <div class="box-body">
@@ -25,7 +25,7 @@
                     <tr>
                         <td><?= $no ?></td>
                         <td>
-                            <h4><a href="<?= base_url('master/buku/listChild/' . $row->kd_kategori); ?>"><strong><?= $row->nm_kategori; ?></strong></a></h4>
+                            <h4><a href="<?= base_url('master/buku/list/' . $row->kd_kategori); ?>"><strong><?= $row->nm_kategori; ?></strong></a></h4>
                         </td>
                         <!-- <td>
                             <?php
