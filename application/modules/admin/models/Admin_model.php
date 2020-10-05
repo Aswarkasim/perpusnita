@@ -18,6 +18,16 @@ class Admin_model extends CI_Model
         return $this->db->get()->result();
     }
 
+    function listPeminjamanGuru()
+    {
+        $this->db->select('tbl_peminjaman_guru.*, 
+                            tbl_buku.judul_buku, 
+                            tbl_buku.kd_buku')
+            ->from('tbl_peminjaman_guru')
+            ->join('tbl_buku', 'tbl_buku.kd_buku = tbl_peminjaman_guru.kd_buku', 'left');
+        return $this->db->get()->result();
+    }
+
 
     function listHilang()
     {

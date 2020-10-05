@@ -250,4 +250,10 @@ class Peminjaman extends CI_Controller
         ];
         $this->load->view('admin/peminjaman/cetak', $data, FALSE);
     }
+
+    function cetakBebasPerpus($kd_anggota)
+    {
+        $data['anggota']  = $this->Crud_model->listingOne('tbl_anggota', 'kd_anggota', $kd_anggota);
+        $this->load->view('admin/peminjaman/bebasPerpus', $data, FALSE);
+    }
 }
