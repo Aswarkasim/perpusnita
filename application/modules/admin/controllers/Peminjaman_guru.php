@@ -125,59 +125,16 @@ class Peminjaman_guru extends CI_Controller
         }
     }
 
-    public function hilang()
-    {
-        $peminjaman_guru = $this->AM->listHilang();
-        $data = [
-            'add'      => 'admin/peminjaman_guru/add',
-            'edit'      => 'admin/peminjaman_guru/edit/',
-            'delete'      => 'admin/peminjaman_guru/delete/',
-            'pinjam'      => 'admin/peminjaman_guru/cek_kd/',
-            'peminjaman_guru'      => $peminjaman_guru,
-            'content'   => 'admin/peminjaman_guru/hilang'
-        ];
 
-        $this->load->view('admin/layout/wrapper', $data, FALSE);
-    }
 
-    function cek_kd()
-    {
-        $kd_anggota = $this->input->post('kd_anggota');
-        $data = $this->Crud_model->listingOne('tbl_anggota', 'kd_anggota', $kd_anggota);
-        if ($data) {
-            redirect('admin/peminjaman_guru/pinjam/' . $kd_anggota, 'refresh');
-        } else {
-            $this->session->set_flashdata('msg_er', 'Data tidak ditemukan');
-            redirect('admin/peminjaman_guru/index');
-        }
-    }
-
-    function pinjam($kd_anggota)
-    {
-        $anggota  = $this->Crud_model->listingOne('tbl_anggota', 'kd_anggota', $kd_anggota);
-        $buku = $this->AM->listBuku();
-        $peminjaman_guru = $this->AM->listPeminjamanAnggota($kd_anggota);
-        $data = [
-            'status'       => 'admin/peminjaman_guru/status/',
-            'add'       => 'admin/peminjaman_guru/add',
-            'edit'      => 'admin/peminjaman_guru/edit/',
-            'delete'    => 'admin/peminjaman_guru/delete/',
-            'anggota'   => $anggota,
-            'buku'      => $buku,
-            'peminjaman_guru' => $peminjaman_guru,
-            'content'   => 'admin/peminjaman_guru/add_detail'
-        ];
-        $this->load->view('admin/layout/wrapper', $data, FALSE);
-    }
 
 
 
     public function status()
     {
-        $kd_pinjam = $this->uri->segment(4);
-        $kd_anggota = $this->uri->segment(5);
-        $status = $this->uri->segment(6);
-        $kd_buku = $this->uri->segment(7);
+        $status = $this->uri->segment(4);
+        $kd_peminjaman_guru = $this->uri->segment(5);
+        $kd_buku = $this->uri->segment(6);
 
 
         $data = [
@@ -185,41 +142,28 @@ class Peminjaman_guru extends CI_Controller
             'status_kembali' => $status
         ];
         $buku = $this->Crud_model->listingOne('tbl_buku', 'kd_buku', $kd_buku);
+        $pinjam = $this->Crud_model->listingOne('tbl_peminjaman_guru', 'kd_peminjaman_guru', $kd_peminjaman_guru);
 
-        if (($status == 'Kembali') || $status == 'Terlambat') {
-            $jumlahBuku =  $buku->jumlah + 1;
-        } else if ($status == 'Hilang') {
-            $jumlahBuku = $buku->jumlah - 1;
-            $dataPinjam = [
-                'status_pinjam' => 'Pinjam'
+        if ($status == "kembali") {
+            $updateJumlah = [
+                'jumlah' => $buku->jumlah + $pinjam->jumlah
             ];
-            $this->Crud_model->edit('tbl_anggota', 'kd_anggota', $kd_anggota, $dataPinjam);
-        }
-        $dataJumlah = [
-            'jumlah' => $jumlahBuku
-        ];
-
-
-
-        $this->Crud_model->edit('tbl_buku', 'kd_buku', $kd_buku, $dataJumlah);
-        $this->Crud_model->edit('tbl_peminjaman_guru', 'kd_peminjaman_guru', $kd_pinjam, $data);
-
-        $cek_pinjam = $this->AM->cekPinjam($kd_anggota);
-
-        if (empty($cek_pinjam)) {
-            $dataPinjam = [
-                'status_pinjam' => 'Bebas'
+            $this->Crud_model->edit('tbl_buku', 'kd_buku', $kd_buku, $updateJumlah);
+        } else {
+            $updateJumlah = [
+                'jumlah' => $buku->jumlah - $pinjam->jumlah
             ];
-            $this->Crud_model->edit('tbl_anggota', 'kd_anggota', $kd_anggota, $dataPinjam);
+            $this->Crud_model->edit('tbl_buku', 'kd_buku', $kd_buku, $updateJumlah);
         }
 
-        $this->session->set_flashdata('msg', 'Buku dikembalikan');
-        redirect('admin/peminjaman_guru/pinjam/' . $kd_anggota, 'refresh');
+        $pinjam = $this->Crud_model->edit('tbl_peminjaman_guru', 'kd_peminjaman_guru', $kd_peminjaman_guru, $data);
+        $this->session->set_flashdata('msg', 'data diubah');
+        redirect('admin/peminjaman_guru/', 'refresh');
     }
 
-    function delete($id_peminjaman_guru)
+    function delete($kd_peminjaman_guru)
     {
-        $this->Crud_model->delete('tbl_peminjaman_guru', 'kd_peminjaman_guru', $id_peminjaman_guru);
+        $this->Crud_model->delete('tbl_peminjaman_guru', 'kd_peminjaman_guru', $kd_peminjaman_guru);
         $this->session->set_flashdata('msg', 'data dihapus');
         redirect('admin/peminjaman_guru/', 'refresh');
     }

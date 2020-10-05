@@ -48,6 +48,11 @@
                                     <span class="sr-only">Toggle Dropdown</span>
                                 </button>
                                 <ul class="dropdown-menu" role="menu">
+                                    <?php if ($row->status_kembali == "Kembali") { ?>
+                                        <li><a href="<?= base_url('admin/peminjaman_guru/status/Belum/' . $row->kd_peminjaman_guru . '/' . $row->kd_buku)  ?>"><i class="fa fa-times"></i> Belum Kembali</a></li>
+                                    <?php } else { ?>
+                                        <li><a href="<?= base_url('admin/peminjaman_guru/status/kembali/' . $row->kd_peminjaman_guru . '/' . $row->kd_buku)  ?>"><i class="fa fa-check"></i> Kembali</a></li>
+                                    <?php } ?>
                                     <li><a href="<?= base_url($edit . $row->kd_peminjaman_guru)  ?>"><i class="fa fa-edit"></i> Edit</a></li>
                                     <li><a class="tombol-hapus" href="<?= base_url($delete . $row->kd_peminjaman_guru)  ?>"><i class="fa fa-trash"></i> Hapus</a></li>
                                 </ul>
