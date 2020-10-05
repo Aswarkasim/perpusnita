@@ -12,7 +12,7 @@
             <thead>
                 <tr>
                     <th width="40px">No</th>
-                    <th>Nama Anggota</th>
+                    <th>Nama Guru</th>
                     <th>Judul Buku - Kode</th>
                     <th width="">Tgl Peminjam</th>
                     <th width="">Tgl Harus Kembali</th>
