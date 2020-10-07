@@ -25,14 +25,14 @@
                     <tr>
                         <td><?= $no ?></td>
                         <td>
-                            <h4><a href="<?= base_url('master/buku/list/' . $row->kd_kategori); ?>"><strong><?= $row->nm_kategori; ?></strong></a></h4>
+                            <h4><a href="<?= base_url('master/buku/listBuku/' . $row->kd_kategori); ?>"><strong><?= $row->nm_kategori; ?></strong></a></h4>
                         </td>
                         <!-- <td>
                             <?php
                             $kategori = $this->BM->listChildKategori($row->kd_kategori);
                             foreach ($kategori as $d) {
                             ?>
-                                <span><a href="<?= base_url('master/buku/list/' . $d->kd_kategori); ?>"><strong><?= $d->nm_kategori; ?></strong></a></span> <br>
+                                <span><a href="<?= base_url('master/buku/listBuku/' . $d->kd_kategori); ?>"><strong><?= $d->nm_kategori; ?></strong></a></span> <br>
                             <?php } ?>
                         </td> -->
 
