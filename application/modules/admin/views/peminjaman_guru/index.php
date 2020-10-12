@@ -27,7 +27,7 @@
                     <tr>
                         <td><?= $no ?></td>
                         <td>
-                            <strong><a href="<?= base_url('admin/peminjaman_guru/pinjam/' . $row->kd_peminjaman_guru) ?>"> <?= $row->nama_guru ?></strong></a><br>
+                            <?= $row->nama_guru ?>
                         </td>
                         <td><?= $row->judul_buku . ' - ' . $row->kd_buku ?></td>
                         <td><?= $row->tanggal_pinjam ?></td>

@@ -34,8 +34,8 @@ class Jenis extends CI_Controller
     function add()
     {
         $valid = $this->form_validation;
-        $valid->set_rules('kd_jenis', 'Kode Kaategori', 'macthes[tbl_jenis.kd_jenis]', array('matches' => '%s telah ada. Silahkan masukkan kode yang lain'));
-        $valid->set_rules('nm_jenis', 'Nama Kaategori', 'macthes[tbl_jenis.nm_jenis]', array('matches' => '%s telah ada. Silahkan masukkan kode yang lain'));
+        $valid->set_rules('kd_jenis', 'Kode Kaategori', 'is_unique[tbl_jenis.kd_jenis]', array('is_unique' => '%s telah ada. Silahkan masukkan kode yang lain'));
+        $valid->set_rules('nm_jenis', 'Nama Kaategori', 'is_unique[tbl_jenis.nm_jenis]', array('is_unique' => '%s telah ada. Silahkan masukkan kode yang lain'));
 
 
         if ($valid->run() === TRUE) {
@@ -44,7 +44,7 @@ class Jenis extends CI_Controller
             $i = $this->input;
             $data = [
                 'nm_jenis'   => $i->post('nm_jenis'),
-                'kd_jenis'   => $i->post('kd_jenis')
+                'kd_jenis'   => str_replace(' ', '', $i->post('kd_jenis'))
             ];
             $this->Crud_model->add('tbl_jenis', $data);
             $this->session->set_flashdata('msg', 'jenis berhasil ditambah');

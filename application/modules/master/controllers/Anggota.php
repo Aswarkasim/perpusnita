@@ -83,7 +83,7 @@ class Anggota extends CI_Controller
 
                     $i = $this->input;
                     $data = [
-                        'kd_anggota'    => $i->post('kd_anggota'),
+                        'kd_anggota'    => str_replace(' ', '', $i->post('kd_anggota')),
                         'nomor_anggota'    => $i->post('nomor_anggota'),
                         'nm_anggota'    => $i->post('nm_anggota'),
                         'tempat_lahir'  => $i->post('tempat_lahir'),

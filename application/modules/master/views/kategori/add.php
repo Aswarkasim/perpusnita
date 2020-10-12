@@ -1,9 +1,9 @@
 <button type="button" class="btn btn-warning btn-sx" data-toggle="modal" data-target="#modal-default">
     <i class="fa fa-plus"></i>Tambah
 </button>
-<a href="<?= base_url('master/kategori/exportExcel') ?>" class="btn btn-sm btn-success"><i class="fa fa-file-excel-o"></i> Export Excel</a>
-<a href="<?= base_url('master/kategori/cetak') ?>" class="btn btn-sm btn-primary" target="_blank"><i class="fa fa-print"></i> Cetak</a>
-<?= form_open(base_url($tombol['add'])) ?>
+<!-- <a href="<?= base_url('master/kategori/exportExcel') ?>" class="btn btn-sm btn-success"><i class="fa fa-file-excel-o"></i> Export Excel</a> -->
+<!-- <a href="<?= base_url('master/kategori/cetak') ?>" class="btn btn-sm btn-primary" target="_blank"><i class="fa fa-print"></i> Cetak</a> -->
+<?= form_open(base_url('master/kategori')) ?>
 <div class="modal fade" id="modal-default">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -41,7 +41,7 @@
                         </div>
                         <div class="col-md-9">
                             <select name="is_parent" class="form-control select2" id="">
-                                <option value="">-- Kategoti Induk --</option>
+                                <option value="">-- Kategori Induk --</option>
                                 <?php foreach ($is_parent as $row) { ?>
                                     <option value="<?= $row->kd_kategori; ?>"><?= $row->nm_kategori; ?></option>
                                 <?php } ?>

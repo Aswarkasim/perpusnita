@@ -44,7 +44,7 @@ class Penerbit extends CI_Controller
         } else {
             $i = $this->input;
             $data = [
-                'nm_penerbit'   => $i->post('nm_penerbit'),
+                'nm_penerbit'   => str_replace(' ', '', $i->post('kd_penerbit')),
                 'kd_penerbit'   => $i->post('kd_penerbit')
             ];
             $this->Crud_model->add('tbl_penerbit', $data);

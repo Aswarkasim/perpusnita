@@ -16,6 +16,12 @@
                     <?php include('add.php') ?>
                 </p>
 
+                <?php
+
+                echo validation_errors('<div class="alert alert-warning"><i class="fa fa-warning"></i> ', '</div>');
+
+                ?>
+
                 <table class="table DataTable">
                     <thead>
                         <tr>
@@ -39,7 +45,10 @@
                                     $kategori = $this->BM->listChildKategori($row->kd_kategori);
                                     foreach ($kategori as $d) {
                                     ?>
-                                        <span><?= $d->kd_kategori . ' - ' . $d->nm_kategori; ?></span> <br>
+                                        <span><?= $d->kd_kategori . ' - ' . $d->nm_kategori; ?></span>
+                                        </a>
+                                        <a href="<?= base_url($tombol['delete'] . $d->kd_kategori) ?>" class="tombol-hapus-kategori"> Hapus</a>
+                                        <br>
                                     <?php } ?>
                                 </td>
                                 <td>
@@ -47,7 +56,6 @@
                                         <i class="fa fa-edit"></i>Edit
                                     </button>
 
-                                    <!-- <a href="<?= base_url($tombol['edit']) ?>" class="btn btn-success btn-xs"><i class="fa fa-edit"></i> Edit</a> -->
                                     <a href="<?= base_url($tombol['delete'] . $row->kd_kategori) ?>" class="btn btn-danger btn-xs tombol-hapus-kategori"><i class="fa fa-trash"></i> Hapus</a>
                                 </td>
                                 <?php include('edit.php')

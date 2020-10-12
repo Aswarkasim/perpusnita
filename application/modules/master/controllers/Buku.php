@@ -129,7 +129,7 @@ class Buku extends CI_Controller
 
                     $i = $this->input;
                     $data = [
-                        'kd_buku'    => $i->post('kd_buku'),
+                        'kd_buku'    => str_replace(' ', '', $i->post('kd_buku')),
                         'judul_buku'    => $i->post('judul_buku'),
                         'isbn'    => $i->post('isbn'),
                         'penulis'    => $i->post('penulis'),
