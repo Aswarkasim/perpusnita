@@ -35,6 +35,26 @@ class Buku extends CI_Controller
         $this->load->view('admin/layout/wrapper', $data, FALSE);
     }
 
+    public function listAllBuku()
+    {
+        $tombol  = [
+            'add'     => 'master/buku/add',
+            'edit'    => 'master/buku/edit/',
+            'delete'  => 'master/buku/delete/'
+        ];
+
+
+        $buku = $this->BM->listingBukuIndex();
+
+        $data = [
+            'buku'      => $buku,
+            'tombol'   => $tombol,
+            'redirect'  => 'listAllBuku',
+            'content' => 'master/buku/list'
+        ];
+        $this->load->view('admin/layout/wrapper', $data, FALSE);
+    }
+
 
     public function listBuku($kd_kategori)
     {
@@ -54,6 +74,7 @@ class Buku extends CI_Controller
             'kategori' => $kategori,
             'tombol'   => $tombol,
             'katDetail'   => $katDetail,
+            'redirect'  => 'listBuku/' . $kd_kategori,
             'content' => 'master/buku/list'
         ];
         $this->load->view('admin/layout/wrapper', $data, FALSE);
@@ -88,6 +109,7 @@ class Buku extends CI_Controller
         $buku = $this->BM->listingBuku($kd_buku)->row();
         $data = [
             'buku' => $buku,
+            'back' => 'master/buku/',
             'content' => 'master/buku/detail'
         ];
         $this->load->view('admin/layout/wrapper', $data, FALSE);
@@ -245,7 +267,7 @@ class Buku extends CI_Controller
         $this->load->view('admin/layout/wrapper', $data, FALSE);
     }
 
-    function delete($kd_buku)
+    function delete($kd_buku, $redirect, $kd_kategori = null)
     {
         $buku = $this->Crud_model->listingOne('tbl_buku', 'kd_buku', $kd_buku);
         if ($buku->cover != '') {
@@ -253,7 +275,7 @@ class Buku extends CI_Controller
         }
         $this->Crud_model->delete('tbl_buku', 'kd_buku', $kd_buku);
         $this->session->set_flashdata('msg', 'data telah dihapus');
-        redirect('master/buku');
+        redirect('master/buku/' . $redirect . '/' . $kd_kategori);
     }
 
     function exportExcel()

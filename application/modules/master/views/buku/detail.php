@@ -165,7 +165,7 @@
 
                                     </div>
                                     <div class="col-md-9">
-                                        <a href="<?= base_url('master/buku') ?>" class="btn btn-warning"><i class="fa fa-arrow-left"></i> Kembali</a>
+                                        <a href="<?= base_url($back) ?>" class="btn btn-warning"><i class="fa fa-arrow-left"></i> Kembali</a>
 
                                     </div>
                                 </div>

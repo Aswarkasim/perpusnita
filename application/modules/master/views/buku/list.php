@@ -1,7 +1,7 @@
 <div class="flash-data" data-flashdata="<?= $this->session->flashdata('msg') ?>"></div>
 <div class="box">
     <div class="box-header">
-        <h3 class="box-title">Manajemen Data Buku <?= $katDetail->nm_kategori; ?></h3>
+        <h3 class="box-title">Manajemen Data Buku</h3>
     </div>
     <!-- /.box-header -->
     <div class="box-body">
@@ -35,7 +35,7 @@
                         <td><?= $row->jumlah ?></td>
                         <td>
                             <a href="<?= base_url($tombol['edit'] . $row->kd_buku)  ?>" class="btn btn-success btn-xs"><i class="fa fa-edit"></i> Edit</a>
-                            <a class="btn btn-danger btn-xs tombol-hapus" href="<?= base_url($tombol['delete'] . $row->kd_buku)  ?>"><i class="fa fa-trash"></i> Hapus</a>
+                            <a class="btn btn-danger btn-xs tombol-hapus" href="<?= base_url($tombol['delete'] . $row->kd_buku . '/' . $redirect)  ?>"><i class="fa fa-trash"></i> Hapus</a>
                         </td>
                     </tr>
                 <?php $no++;
