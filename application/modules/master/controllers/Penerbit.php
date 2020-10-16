@@ -39,7 +39,7 @@ class Penerbit extends CI_Controller
         $valid->set_rules('nm_penerbit', 'Nama Kaategori', 'macthes[tbl_penerbit.nm_penerbit]', array('matches' => '%s telah ada. Silahkan masukkan kode yang lain'));
 
 
-        if ($valid->run() === false) {
+        if ($valid->run() === true) {
             $this->index();
         } else {
             $i = $this->input;
