@@ -5,13 +5,13 @@
             <div class="row">
                 <div class="col-lg-8 col-md-10 mx-auto">
                     <div class="site-heading">
-                        <h1><?php
+                        <h3><?php
                             $uri  = $this->uri->segment(2);
                             if ($uri) {
                                 echo strtoupper($uri);
                             } else {
-                                echo "BERANDA";
-                            } ?></h1>
+                                echo "SELAMA DATANG <br> DI PERPUSTAKAAN";
+                            } ?></h3>
                     </div>
                 </div>
             </div>
