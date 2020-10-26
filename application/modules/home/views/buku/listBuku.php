@@ -1,21 +1,14 @@
 <div class="container mt-5">
     <div class="">
-        <h4><strong> Daftar Buku <?= $kat_parent->nm_kategori; ?></strong></h4>
+        <h4><strong> Daftar Buku <?php if (isset($kat_parent->nm_kategori)) {
+                                        echo $kat_parent->nm_kategori;
+                                    }; ?></strong></h4>
     </div><br>
-    <form action="<?= base_url('home/buku/cari'); ?>">
-        <div class="row">
+    <div class="row">
 
-            <div class="offset-md-7 col-md-5">
-                <div class="input-group mb-3">
-                    <input type="text" name="cari" class="form-control" placeholder="Cari Buku" aria-label="Recipient's username" aria-describedby="button-addon2">
-                    <div class="input-group-append">
-                        <button type="submit" class="btn btn-primary" type="button" id="button-addon2">Cari</button>
-                    </div>
-                </div>
-            </div>
+        <?php include('cari.php') ?>
 
-        </div>
-    </form>
+    </div>
 
 
     <div class="row">
@@ -40,8 +33,8 @@
     </div>
 
     <div class="row pt-5">
-        <div class="col-lg-12">
-            <?= $pagination ?>
-        </div>
+        <?php if (isset($pagination)) {
+            echo $pagination;
+        } ?>
     </div>
 </div>

@@ -50,12 +50,14 @@
     </div>
 
 
-    <table class="table table-bordered">
+    <table class="table table-bordered" width="80%">
       <thead>
         <tr>
           <th width="40px">No</th>
-          <th>Kode Penerbit</th>
-          <th>Nama</th>
+          <th width="150px">Kode Penerbit</th>
+          <th align="center">
+            <center> Nama Penerbit</center>
+          </th>
         </tr>
       </thead>
       <tbody id="targetData">
@@ -63,8 +65,8 @@
         foreach ($penerbit as $row) { ?>
           <tr>
             <td><?= $no ?></td>
-            <td><?= $row->kd_penerbit ?></td>
-            <td><?= $row->nm_penerbit ?></td>
+            <td align="center"><?= $row->kd_penerbit ?></td>
+            <td align="center"><?= $row->nm_penerbit ?></td>
           </tr>
         <?php $no++;
         } ?>

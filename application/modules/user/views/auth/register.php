@@ -28,7 +28,7 @@
                         </div>
                     </div>
 
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <div class="row">
                             <div class="col-md-4">
                                 <b><label class="pull-right">Username</label></b>
@@ -37,7 +37,7 @@
                                 <input type="text" class="form-control" placeholder="Username" name="username">
                             </div>
                         </div>
-                    </div>
+                    </div> -->
 
                     <div class="form-group">
                         <div class="row">
@@ -114,7 +114,7 @@
                                 <b><label class="pull-right">No Hp</label></b>
                             </div>
                             <div class="col-md-8">
-                                <input type="text" placeholder="No. Hp" class="form-control" name="no_telepon">
+                                <input type="number" placeholder="No. Hp" class="form-control" name="no_telepon">
                             </div>
                         </div>
                     </div>

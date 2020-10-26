@@ -21,7 +21,7 @@
                         <tr>
                             <th width="40px">No</th>
                             <th>Kode Jenis</th>
-                            <th>Nama</th>
+                            <th>Nama Jenis</th>
                             <th width="100px">Aksi</th>
                         </tr>
                     </thead>

@@ -2,7 +2,7 @@
     <div class="row text-center">
         <div class="offset-md-4 col-md-4">
             <form action="<?= base_url('user/auth') ?>" method="post">
-                <h1 class="h3 mb-3 font-weight-normal">Silakan Login</h1>
+                <h1 class="h3 mb-3 font-weight-normal">Silahkan Login</h1>
                 <?php
                 echo validation_errors('<div class="text text-danger">', '</div>');
                 if (isset($error)) {
@@ -15,7 +15,7 @@
 
                 <div class="form-group">
                     <label for="inputEmail" class="sr-only">NIS</label>
-                    <input name="kd_anggota" class="form-control" placeholder="Kode Anggota" type="number">
+                    <input name="kd_anggota" class="form-control" placeholder="NIS" type="number">
                 </div>
                 <div class="form-group">
                     <label for="inputPassword" class="sr-only">Password</label>

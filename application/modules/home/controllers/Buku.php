@@ -79,4 +79,15 @@ class Buku extends CI_Controller
         ];
         $this->load->view('layout/wrapper', $data);
     }
+
+    function cari()
+    {
+        $key = $this->input->post('key');
+        $buku = $this->HM->cariBuku($key);
+        $data = [
+            'buku'     => $buku,
+            'content'  => 'home/buku/listBuku'
+        ];
+        $this->load->view('layout/wrapper', $data, FALSE);
+    }
 }

@@ -61,4 +61,13 @@ class Buku_model extends CI_Model
             ->join('tbl_kategori', 'tbl_kategori.kd_kategori = tbl_buku.kd_kategori', 'LEFT');
         return $this->db->get()->result();
     }
+
+    function cariBuku($key)
+    {
+
+        $this->db->select('*')
+            ->from('tbl_buku')
+            ->like('judul_buku', $key);
+        return $this->db->get()->result();
+    }
 }

@@ -344,4 +344,25 @@ class Buku extends CI_Controller
         ];
         $this->load->view('master/buku/cetak', $data, FALSE);
     }
+
+    function cari()
+    {
+        $key = $this->input->post('key');
+        $buku = $this->BM->cariBuku($key);
+
+        $tombol  = [
+            'add'     => 'master/buku/add',
+            'edit'    => 'master/buku/edit/',
+            'delete'  => 'master/buku/delete/'
+        ];
+
+
+        $data = [
+            'buku'     => $buku,
+            'tombol'     => $tombol,
+            'redirect'  => 'listAllBuku',
+            'content'  => 'master/buku/list'
+        ];
+        $this->load->view('admin/layout/wrapper', $data, FALSE);
+    }
 }

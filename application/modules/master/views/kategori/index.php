@@ -27,7 +27,7 @@
                         <tr>
                             <th width="40px">No</th>
                             <th>Kode Kategori</th>
-                            <th>Nama</th>
+                            <th>Nama Kategori</th>
                             <th width="100px">Aksi</th>
                         </tr>
                     </thead>

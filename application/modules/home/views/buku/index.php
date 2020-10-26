@@ -2,20 +2,9 @@
     <div class="">
         <h4><strong> Daftar Buku</strong></h4>
     </div><br>
-    <form action="<?= base_url('home/buku/cari'); ?>">
-        <div class="row">
-
-            <div class="offset-md-7 col-md-5">
-                <div class="input-group mb-3">
-                    <input type="text" name="cari" class="form-control" placeholder="Cari Buku" aria-label="Recipient's username" aria-describedby="button-addon2">
-                    <div class="input-group-append">
-                        <button type="submit" class="btn btn-primary" type="button" id="button-addon2">Cari</button>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </form>
+    <div class="row">
+        <?php include('cari.php') ?>
+    </div>
 
 
     <div class="row">

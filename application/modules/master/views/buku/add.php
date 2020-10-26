@@ -64,7 +64,7 @@
                                         <label for="" class="pull-right">Tahun Terbit</label>
                                     </div>
                                     <div class="col-md-9">
-                                        <input type="text" name="tahun_terbit" class="form-control" value="<?= set_value('tahun_terbit') ?>">
+                                        <input type="number " name="tahun_terbit" class="form-control" value="<?= set_value('tahun_terbit') ?>">
                                     </div>
                                 </div>
                             </div>

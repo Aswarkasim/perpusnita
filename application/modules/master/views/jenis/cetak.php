@@ -50,12 +50,14 @@
     </div>
 
 
-    <table class="table table-bordered">
+    <table class="table table-bordered" width="200px">
       <thead>
         <tr>
           <th width="40px">No</th>
-          <th>Kode Kategori</th>
-          <th>Nama</th>
+          <th width="150px">Kode Kategori</th>
+          <th>
+            <center> Nama Jenis</center>
+          </th>
         </tr>
       </thead>
       <tbody id="targetData">
@@ -63,8 +65,8 @@
         foreach ($jenis as $row) { ?>
           <tr>
             <td><?= $no ?></td>
-            <td><?= $row->kd_jenis ?></td>
-            <td><?= $row->nm_jenis ?></td>
+            <td align="center"><?= $row->kd_jenis ?></td>
+            <td align="center"><?= $row->nm_jenis ?></td>
           </tr>
         <?php $no++;
         } ?>

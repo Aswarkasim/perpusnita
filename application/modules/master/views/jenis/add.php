@@ -1,5 +1,5 @@
 <button type="button" class="btn btn-warning btn-sx" data-toggle="modal" data-target="#modal-default">
-    <i class="fa fa-plus"></i>Tambah
+    <i class="fa fa-plus"></i>Tambah Jenis
 </button>
 <a href="<?= base_url('master/jenis/exportExcel') ?>" class="btn btn-sm btn-success"><i class="fa fa-file-excel-o"></i> Export Excel</a>
 <a href="<?= base_url('master/jenis/cetak') ?>" class="btn btn-sm btn-primary" target="_blank"><i class="fa fa-print"></i> Cetak</a>

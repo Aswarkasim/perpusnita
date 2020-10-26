@@ -14,7 +14,8 @@ class Admin_model extends CI_Model
                             tbl_anggota.nm_anggota')
             ->from('tbl_peminjaman')
             ->join('tbl_buku', 'tbl_buku.kd_buku = tbl_peminjaman.kd_buku', 'left')
-            ->join('tbl_anggota', 'tbl_anggota.kd_anggota = tbl_peminjaman.kd_anggota', 'left');
+            ->join('tbl_anggota', 'tbl_anggota.kd_anggota = tbl_peminjaman.kd_anggota', 'left')
+            ->order_by('date_created', 'DESC');
         return $this->db->get()->result();
     }
 

@@ -86,7 +86,7 @@ class Auth extends CI_Controller
         $valid->set_rules('jurusan', 'Jurusan', 'required', array('required' => $required));
         $valid->set_rules('kelas', 'Kelas', 'required', array('required' => $required));
         $valid->set_rules('tanggal_lahir', 'Tanggal lahir', 'required', array('required' => $required));
-        $valid->set_rules('username', 'Username', 'required|is_unique[tbl_anggota.username]', array('required' => $required, 'is_unique' => $is_username));
+        // $valid->set_rules('username', 'Username', 'required|is_unique[tbl_anggota.username]', array('required' => $required, 'is_unique' => $is_username));
         $valid->set_rules('password', 'Password', 'required|min_length[6]|max_length[10]', array('required' => $required, 'is_unique' => $is_email, 'min_length' => '% minimal 6 karakter', 'max_length' => '%s maksimal 8 karakter'));
         $valid->set_rules('re_password', 'Konfirmasi Password', 'required|matches[password]', array('required' => $required, 'matches' => '%s password yang anda masukkan tidak sama'));
 
@@ -99,7 +99,7 @@ class Auth extends CI_Controller
             $i = $this->input;
             $data = [
                 'kd_anggota'        => $i->post('kd_anggota'),
-                'username'          => $i->post('username'),
+                // 'username'          => $i->post('username'),
                 'nm_anggota'        => $i->post('nm_anggota'),
                 'agama'             => $i->post('agama'),
                 'kelamin'           => $i->post('kelamin'),

@@ -38,10 +38,6 @@
                         <td>: <?php echo $buku->bahasa; ?></td>
                     </tr>
                     <tr>
-                        <td>Letak Buku</td>
-                        <td>: <?php echo $buku->lokasi_rak; ?></td>
-                    </tr>
-                    <tr>
                         <td>Penerbit</td>
                         <td>: <?php echo $buku->nm_penerbit; ?></td>
                     </tr>
