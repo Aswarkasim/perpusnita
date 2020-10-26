@@ -10,7 +10,7 @@
                             if ($uri) {
                                 echo strtoupper($uri);
                             } else {
-                                echo "SELAMA DATANG <br> DI PERPUSTAKAAN";
+                                echo "<b>SELAMAT DATANG <br> DI PERPUSTAKAAN<b/>";
                             } ?></h2>
                     </div>
                 </div>
