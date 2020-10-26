@@ -9,7 +9,7 @@ $user = $this->Crud_model->listingOne('tbl_user', 'id_user', $id_user);
     <!-- Logo -->
     <a href="#" class="logo">
         <!-- mini logo for sidebar mini 50x50 pixels -->
-
+        ADMIN
     </a>
 
     <!-- Header Navbar -->

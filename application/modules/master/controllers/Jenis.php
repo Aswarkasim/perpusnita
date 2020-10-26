@@ -38,7 +38,7 @@ class Jenis extends CI_Controller
         $valid->set_rules('nm_jenis', 'Nama Kaategori', 'is_unique[tbl_jenis.nm_jenis]', array('is_unique' => '%s telah ada. Silahkan masukkan kode yang lain'));
 
 
-        if ($valid->run() === true) {
+        if ($valid->run() === false) {
             $this->index();
         } else {
             $i = $this->input;

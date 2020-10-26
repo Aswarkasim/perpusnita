@@ -14,19 +14,32 @@
     <!-- Theme style -->
     <link rel="stylesheet" href="<?= base_url('assets/admin/') ?>dist/css/AdminLTE.min.css">
     <!-- iCheck -->
-    <link rel="stylesheet" href="<?= base_url('assets/admin/') ?>plugins/iCheck/square/blue.css">
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+
+
+    <style>
+        .bg-img {
+            background-image: url(<?= base_url('assets/uploads/bg.jpeg') ?>);
+            width: 100%;
+            background-repeat: no-repeat;
+            background-size: cover;
+
+        }
+    </style>
+
 </head>
 
-<body class="hold-transition login-page">
+
+
+<body class="hold-transition login-page bg-img">
     <div class="login-box">
         <div class="login-logo">
-            <a href="<?= base_url('assets/admin/') ?>index2.html"><b>SELAMAT</b> DATANG</a>
+            <p class="text-white"><b>SELAMAT</b> DATANG</p>
         </div>
         <!-- /.login-logo -->
         <div class="login-box-body">
-            <p class="login-box-msg">Silakan Login</p>
+            <p class="login-box-msg">Silahkan Login</p>
 
             <form action="<?= base_url('admin/auth') ?>" method="post">
                 <?php
